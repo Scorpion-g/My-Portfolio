@@ -3,10 +3,11 @@
     <div class="nav-top container">
       <button
         class="nav-toggle"
+        :class="{ 'is-open': open }"
         @click="open = !open"
         :aria-expanded="String(open)"
         aria-controls="primary-navigation"
-        aria-label="Ouvrir le menu"
+        :aria-label="open ? 'Fermer le menu' : 'Ouvrir le menu'"
       >
         <span class="bar" aria-hidden="true"></span>
       </button>
@@ -74,14 +75,18 @@ onBeforeUnmount(() => {
 /* Styles légers spécifiques au composant pour le comportement responsive */
 .site-nav{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04);width:100%}
 .nav-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:none}
 
-/* Toggle button (visible surmobile) */
-.nav-toggle{background:transparent;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.nav-toggle .bar{display:block;width:22px;height:2px;background:currentColor;position:relative}
-.nav-toggle .bar::before,.nav-toggle .bar::after{content:'';position:absolute;left:0;width:22px;height:2px;background:currentColor}
+/* Toggle button (visible sur mobile) */
+.nav-toggle{background:transparent;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s}
+.nav-toggle .bar{display:block;width:22px;height:2px;background:currentColor;position:relative;transition:background 0.2s}
+.nav-toggle .bar::before,.nav-toggle .bar::after{content:'';position:absolute;left:0;width:22px;height:2px;background:currentColor;transition:transform 0.3s, top 0.3s}
 .nav-toggle .bar::before{top:-7px}
 .nav-toggle .bar::after{top:7px}
+
+/* Animation hamburger -> X quand ouvert */
+.nav-toggle.is-open .bar{background:transparent}
+.nav-toggle.is-open .bar::before{top:0;transform:rotate(45deg)}
+.nav-toggle.is-open .bar::after{top:0;transform:rotate(-45deg)}
 
 /* Liens cachés par défaut sur mobile */
 .nav-links{display:none;flex-direction:column;gap:10px;padding:12px 0}
@@ -95,24 +100,18 @@ onBeforeUnmount(() => {
 .cv-button{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;background:rgba(90,169,255,0.12);border:1px solid var(--border)}
 .theme-switch{display:inline-flex;align-items:center;gap:8px}
 
-/* Desktop: affiche la nav en ligne et masque le toggle; container centree */
+/* Desktop: affiche la nav en ligne et masque le toggle */
 @media (min-width:900px){
   .nav-toggle{display:none}
-  /* On transforme le site-nav en ligne */
   .site-nav{display:block;padding:12px 20px}
-
-  /* Masquer la barre du haut en desktop (plus de nom) */
   .nav-top{display:none}
 
-  /* Liens a gauche (groupe), actions a droite */
-  .nav-links{display:flex !important;flex-direction:row;align-items:center;gap:16px;padding:0;justify-content:space-between;width:100%;flex-wrap:nowrap}
+  /* Toujours afficher les liens en desktop */
+  .nav-links{display:flex;flex-direction:row;align-items:center;gap:16px;padding:0;justify-content:space-between;width:100%;flex-wrap:nowrap}
   .nav-links__group{display:flex;flex-direction:row;align-items:center;gap:16px;flex-wrap:nowrap}
   .nav-links > .nav-link{flex:0;text-align:left;padding:6px 10px;white-space:nowrap}
 
-  /* Les actions (CV + theme) restent a droite */
-  .nav-actions{margin-left:auto;flex:0 0 auto;flex-direction:row;margin:0;gap:12px}
-
-  /* Lien styling pour desktop */
+  .nav-actions{margin-left:auto;flex:0 0 auto;flex-direction:row;margin-top:0;gap:12px}
   .nav-link{padding:6px 10px}
 }
 </style>

@@ -1238,6 +1238,7 @@ input:focus-visible,
   }
 
   .site-nav .nav-links {
+    display: none;
     width: 100%;
     order: 3;
     justify-content: center;
@@ -1245,6 +1246,11 @@ input:focus-visible,
     padding: 8px;
     border-radius: 12px;
     gap: 6px;
+    flex-direction: column;
+  }
+
+  .site-nav .nav-links.is-open {
+    display: flex;
   }
 
   .theme-light .site-nav .nav-links {
