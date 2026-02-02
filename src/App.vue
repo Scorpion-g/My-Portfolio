@@ -26,3 +26,4 @@ watchEffect(() => {
   document.body.classList.toggle('theme-light', theme.value === 'light')
 })
 </script>
+<style scoped></style>
