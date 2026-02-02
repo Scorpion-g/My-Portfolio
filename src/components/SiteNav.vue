@@ -23,7 +23,7 @@
       </div>
 
       <div class="nav-actions">
-        <a class="cv-button" href="/cv.pdf" download>Télécharger CV</a>
+        <a class="cv-button" href="/My-Portfolio/CV.pdf" download>Télécharger CV</a>
         <label class="theme-switch" :class="{ 'is-light': isLight }">
           <input
             class="switch-input"
