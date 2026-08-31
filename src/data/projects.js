@@ -9,6 +9,8 @@ import devoirImg from '../assets/devoir.jpg'
 import sparcky_god_pres from '../assets/sparcky_god_presentation.png'
 import sparcky_god_gallery1 from '../assets/sparcky_god_gallery_1.png'
 import sparcky_god_gallery2 from '../assets/sparcky_god_gallery_2.png'
+import ospiCloudCover from '../assets/code.jpg'
+import ospiCloudGallery from '../assets/devoir.jpg'
 export const projects = [
   {
     id: 'sukaijo',
@@ -69,6 +71,34 @@ export const projects = [
         alt: 'Système de modération',
         badge: 'Suggestion',
         caption: 'Système de suggestion pour les utilisateurs'
+      }
+    ]
+  },
+  {
+    id: 'ospi-cloud-e2e',
+    title: 'Ospi Cloud - Outil de tests E2E automatise',
+    shortTitle: 'Ospi Cloud E2E',
+    summary:
+      "Projet realise pendant mon stage de 2e annee de BUT informatique chez Ospi Cloud, situee a Lyon.",
+    objectives:
+      "Developper un outil de tests de bout en bout automatise pour securiser les livraisons et valider les parcours critiques.",
+    tech: 'Playwright, Allure, GitLab CI',
+    team: 'Projet realise en entreprise (Ospi Cloud).',
+    duration: 'Stage de 2e annee de BUT informatique.',
+    cardText:
+      'Automatisation des tests E2E avec Playwright, generation de rapports Allure et execution GitLab CI a chaque push.',
+    cover: {
+      src: ospiCloudCover,
+      alt: 'Illustration du projet de tests E2E Ospi Cloud',
+      badge: 'Playwright',
+      caption: 'Stack: Playwright pour les tests, Allure pour le reporting, GitLab CI pour l automatisation.'
+    },
+    gallery: [
+      {
+        src: ospiCloudGallery,
+        alt: 'Representation de l automatisation des tests dans GitLab CI',
+        badge: 'GitLab CI',
+        caption: 'Execution automatique des tests a chaque push et publication du rapport Allure.'
       }
     ]
   },

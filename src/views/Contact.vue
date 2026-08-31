@@ -36,8 +36,8 @@
           <h2>Disponibilité</h2>
         </div>
         <p class="text-block">
-          Je suis à la recherche d’un stage en développement web et d’une poursuite en alternance
-          pour l’année prochaine. Je suis disponible pour échanger sur un projet ou une mission.
+          Je suis à la recherche d’une alternance ou d’un stage de 18 semaines en développement web,
+          du 15/02/27 au 07/05/27 et du 28/06/27 au 15/08/27. Je suis disponible pour échanger sur un projet ou une mission.
         </p>
         <div class="kpi-row">
           <div class="kpi"><strong>24-48h</strong><span>temps de réponse</span></div>

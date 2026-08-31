@@ -14,7 +14,7 @@
         <div class="media-frame">
           <img :src="plata" alt="Mon lycée" style="max-width:300px" />
         </div>
-        <p class="text-block">J'ai obtenu mon baccalauréat en 2024 à Tarare. J'étudie en BUT informatique à Aubière (2e année).</p>
+        <p class="text-block">J'ai obtenu mon baccalauréat en 2024 à Tarare. J'étudie en BUT informatique à Aubière (3e année).</p>
         <p class="text-block">
           Le cursus me permet d’aborder le développement logiciel, les bases de données, les réseaux
           et la gestion de projet, avec un focus croissant sur le web.
@@ -44,7 +44,7 @@
         <ul>
           <li>Formation : BUT Informatique - IUT Clermont Auvergne.</li>
           <li>Spécialisation progressive : développement web et applications.</li>
-          <li>Projet pro : stage web + alternance l’an prochain.</li>
+          <li>Projet pro : alternance ou stage web de 18 semaines (15/02/27-07/05/27 et 28/06/27-15/08/27).</li>
         </ul>
       </div>
     </div>

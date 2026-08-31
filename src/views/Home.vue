@@ -4,8 +4,8 @@
       <p class="home-kicker">Portfolio - Développement web</p>
       <h1 class="home-title">Bonjour, moi c'est Mattéo Rivière</h1>
       <p class="home-subtitle">
-        Étudiant en 2e année de BUT Informatique à Aubière, je me spécialise dans la programmation web
-        et je recherche un stage, avec une poursuite en alternance pour l’année prochaine.
+        Étudiant en 3e année de BUT Informatique à Aubière, je me spécialise dans la programmation web
+        et je recherche une alternance ou un stage de 18 semaines du 15/02/27 au 07/05/27 et du 28/06/27 au 15/08/27.
       </p>
       <div class="home-actions">
         <a class="project-button" href="/projets">Voir mes projets</a>
@@ -15,7 +15,7 @@
 
     <div class="section-block">
       <h2 class="section-title">Qui je suis ?</h2>
-      <p class="section-subtitle">Étudiant en 2e année de BUT Informatique, orienté développement web.</p>
+      <p class="section-subtitle">Étudiant en 3e année de BUT Informatique, orienté développement web.</p>
     </div>
 
     <div class="portfolio-grid">
@@ -27,14 +27,14 @@
         <div class="media-frame">
           <img :src="moi" alt="Photo de Moi" style="max-width:200px" />
         </div>
-        <p class="text-block">Bonjour, je m’appelle Mattéo Rivière, je suis étudiant en deuxième année de BUT informatique à Aubière.</p>
+        <p class="text-block">Bonjour, je m’appelle Mattéo Rivière, je suis étudiant en troisième année de BUT informatique à Aubière.</p>
         <p class="text-block">
           Passionné par le développement web, je travaille régulièrement sur des projets personnels et scolaires
           pour progresser en front-end, back-end et en conception d’interfaces.
         </p>
         <p class="text-block">
-          Je recherche un stage dans la programmation web et, si possible, une poursuite en alternance
-          pour l’année prochaine.
+          Je recherche une alternance ou un stage de 18 semaines dans la programmation web
+          du 15/02/27 au 07/05/27 et du 28/06/27 au 15/08/27.
         </p>
         <div class="illustration-row">
           <div class="illustration-item"><i class="fa-solid fa-location-dot"></i>Aubière</div>
