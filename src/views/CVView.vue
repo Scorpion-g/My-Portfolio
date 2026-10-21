@@ -57,7 +57,7 @@
             </div>
             <div class="flex items-center gap-1.5">
               <i class="fa-solid fa-envelope text-blue-600 text-[11px]"></i>
-              <a href="mailto:matteo69riviere@gmail.com" class="font-semibold text-slate-900 hover:underline">matteo69riviere@gmail.com</a>
+              <a href="mailto:contact@matteoriviere.fr" class="font-semibold text-slate-900 hover:underline">contact@matteoriviere.fr</a>
             </div>
             <div class="flex items-center gap-1.5">
               <i class="fa-solid fa-phone text-blue-600 text-[11px]"></i>

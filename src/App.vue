@@ -46,7 +46,7 @@
             <span>LinkedIn</span>
           </a>
           <a
-            href="mailto:matteo69riviere@gmail.com"
+            href="mailto:contact@matteoriviere.fr"
             class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5"
           >
             <i class="fa-solid fa-envelope text-sm"></i>

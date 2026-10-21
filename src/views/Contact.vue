@@ -27,14 +27,14 @@
             <span class="text-xs text-slate-500 font-medium">Adresse email</span>
             <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-white/[0.08]">
               <a
-                href="mailto:matteo69riviere@gmail.com"
+                href="mailto:contact@matteoriviere.fr"
                 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 truncate"
               >
-                matteo69riviere@gmail.com
+                contact@matteoriviere.fr
               </a>
               <button
                 type="button"
-                @click="copyText('matteo69riviere@gmail.com', 'email')"
+                @click="copyText('contact@matteoriviere.fr', 'email')"
                 class="shrink-0 ml-2 px-2.5 py-1 rounded-lg text-xs font-semibold bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600 border border-slate-200 dark:border-white/[0.08] transition-all shadow-xs"
                 :title="copiedState === 'email' ? 'Copié !' : 'Copier l\'email'"
               >
@@ -279,6 +279,6 @@ const handleSubmit = () => {
   const body = encodeURIComponent(
     `Bonjour Mattéo,\n\n${form.value.message}\n\nDe : ${form.value.name} (${form.value.email})`
   )
-  window.location.href = `mailto:matteo69riviere@gmail.com?subject=${subject}&body=${body}`
+  window.location.href = `mailto:contact@matteoriviere.fr?subject=${subject}&body=${body}`
 }
 </script>
