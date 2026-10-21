@@ -153,7 +153,7 @@
         <div>
           <span class="text-[11px] text-slate-500 block">Candidat motivé et disponible</span>
           <strong class="text-sm font-bold text-slate-900 block">Mattéo Rivière</strong>
-          <span class="text-[10px] text-blue-600">Portfolio complet : scorpion-g.github.io/My-Portfolio/</span>
+          <span class="text-[10px] text-blue-600">Portfolio complet : matteoriviere.fr</span>
         </div>
 
         <div class="text-right">
@@ -177,7 +177,7 @@ const portfolioUrl = computed(() => {
   if (typeof window !== 'undefined') {
     return window.location.origin + (import.meta.env.BASE_URL || '/')
   }
-  return 'https://scorpion-g.github.io/My-Portfolio/'
+  return 'https://matteoriviere.fr/'
 })
 
 const formattedDate = computed(() => {
