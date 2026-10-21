@@ -8,7 +8,15 @@
     </div>
 
     <!-- Navigation du site -->
-    <SiteNav :theme="theme" :on-toggle-theme="toggleTheme" class="relative z-10" />
+    <SiteNav
+      :theme="theme"
+      :on-toggle-theme="toggleTheme"
+      @open-palette="isPaletteOpen = true"
+      class="relative z-10"
+    />
+
+    <!-- Command Palette (Ctrl+K) -->
+    <CommandPalette v-model="isPaletteOpen" @toggle-theme="toggleTheme" />
 
     <!-- Contenu principal fluide & large -->
     <main class="relative z-10 flex-1 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10 print:p-0 print:m-0 print:max-w-none">
@@ -62,8 +70,10 @@
 import { ref, onMounted } from 'vue'
 import { RouterView, RouterLink } from 'vue-router'
 import SiteNav from './components/SiteNav.vue'
+import CommandPalette from './components/CommandPalette.vue'
 
 const currentYear = new Date().getFullYear()
+const isPaletteOpen = ref(false)
 
 // Initialisation du thème depuis localStorage ou préférence système
 const getInitialTheme = () => {

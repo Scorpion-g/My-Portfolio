@@ -5,12 +5,13 @@
       <!-- Badge Disponibilité -->
       <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold mb-6 shadow-xs">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Stage web (18 sem.) : 15/02/27 au 07/05/27 & 28/06/27 au 15/08/27</span>
+        <span v-if="!isEn">Stage web (18 sem.) : 15/02/27 au 07/05/27 & 28/06/27 au 15/08/27</span>
+        <span v-else>18-week Internship : Feb 15 - May 07 & June 28 - Aug 15, 2027</span>
       </div>
 
       <!-- Titre animé -->
       <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6">
-        Salut, moi c'est <br class="hidden sm:inline" />
+        <span>{{ t('hero.greeting') }}</span> <br class="hidden sm:inline" />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500 animate-gradient-text">
           Mattéo Rivière
         </span>
@@ -18,26 +19,33 @@
 
       <!-- Présentation directe -->
       <p class="text-lg sm:text-2xl text-slate-700 dark:text-slate-300 font-normal leading-relaxed mb-8 max-w-3xl">
-        Étudiant en <strong>3e année de BUT Informatique</strong> à Aubière.
-        Passionné de code depuis ma découverte de Linux et Vim au collège, je conçois des applications web modernes, performantes et bien architecturées.
-        À la recherche d'un stage de 18 semaines du <strong>15/02/2027 au 07/05/2027</strong> et du <strong>28/06/2027 au 15/08/2027</strong>.
+        <span v-if="!isEn">
+          Étudiant en <strong>3e année de BUT Informatique</strong> à Aubière.
+          Passionné de code depuis ma découverte de Linux et Vim au collège, je conçois des applications web modernes, performantes et bien architecturées.
+          À la recherche d'un stage de 18 semaines du <strong>15/02/2027 au 07/05/2027</strong> et du <strong>28/06/2027 au 15/08/2027</strong>.
+        </span>
+        <span v-else>
+          Final-year <strong>Computer Science Undergraduate</strong> in Aubière, France.
+          Passionate about clean software engineering since discovering Linux and Vim. Building fast, resilient and user-focused web applications.
+          Seeking an 18-week internship from <strong>February 15 to May 7, 2027</strong> and <strong>June 28 to August 15, 2027</strong>.
+        </span>
       </p>
 
       <!-- Boutons d'action -->
       <div class="flex flex-wrap items-center gap-4">
         <RouterLink to="/projets" class="btn-primary group text-sm sm:text-base py-3 px-6">
-          <span>Découvrir mes projets</span>
+          <span>{{ t('hero.cta_projects') }}</span>
           <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1.5"></i>
         </RouterLink>
 
         <RouterLink to="/cv" class="btn-secondary text-sm sm:text-base py-3 px-6">
           <i class="fa-regular fa-file-lines text-sm"></i>
-          <span>Consulter mon CV</span>
+          <span>{{ t('hero.cta_cv') }}</span>
         </RouterLink>
 
         <RouterLink to="/contact" class="btn-secondary text-sm sm:text-base py-3 px-6">
           <i class="fa-regular fa-envelope text-sm"></i>
-          <span>Me contacter</span>
+          <span>{{ t('hero.cta_contact') }}</span>
         </RouterLink>
       </div>
     </section>
@@ -420,10 +428,12 @@
 <script setup>
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useI18n } from '../composables/useI18n'
 import { projects } from '../data/projects'
 import moiImg from '../assets/Moi.jpeg'
 import aerostatCover from '../assets/aerostat_mockup.jpg'
 import ospiCover from '../assets/ospi_playwright_mockup.jpg'
 
+const { t, isEn } = useI18n()
 const featuredProjects = computed(() => projects.filter(p => p.featured))
 </script>

@@ -39,7 +39,22 @@
         </nav>
 
         <!-- Actions Desktop & Mobile Toggle -->
-        <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center gap-2 sm:gap-2.5">
+          <!-- Bouton Recherche / Command Palette (Ctrl+K) -->
+          <button
+            type="button"
+            @click="$emit('open-palette')"
+            class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none"
+            title="Recherche rapide (Ctrl + K)"
+            aria-label="Ouvrir la recherche"
+          >
+            <i class="fa-solid fa-magnifying-glass text-xs text-slate-400"></i>
+            <span class="hidden lg:inline text-xs">Rechercher</span>
+            <kbd class="hidden sm:inline-flex items-center text-[10px] font-mono px-1.5 py-0.5 rounded bg-white dark:bg-slate-700/90 border border-slate-200 dark:border-white/[0.1] text-slate-400 dark:text-slate-300">
+              Ctrl K
+            </kbd>
+          </button>
+
           <!-- Bouton CV -->
           <RouterLink
             to="/cv"
@@ -54,6 +69,19 @@
             <i class="fa-regular fa-file-lines text-xs"></i>
             <span>CV</span>
           </RouterLink>
+
+          <!-- Bouton Langue FR / EN -->
+          <button
+            type="button"
+            @click="toggleLang"
+            class="px-2.5 py-1.5 rounded-xl text-xs font-bold tracking-wider text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none"
+            :title="isEn ? 'Passer en Français' : 'Switch to English'"
+            aria-label="Changer la langue"
+          >
+            <span :class="!isEn ? 'text-blue-600 dark:text-blue-400 font-extrabold' : 'opacity-50'">FR</span>
+            <span class="opacity-30 mx-0.5">/</span>
+            <span :class="isEn ? 'text-blue-600 dark:text-blue-400 font-extrabold' : 'opacity-50'">EN</span>
+          </button>
 
           <!-- Bouton Thème Sombre/Clair -->
           <button
@@ -117,23 +145,27 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { useI18n } from '../composables/useI18n'
 
 const props = defineProps({
   theme: { type: String, required: true },
   onToggleTheme: { type: Function, required: true }
 })
 
+const emit = defineEmits(['open-palette'])
+
 const route = useRoute()
 const mobileOpen = ref(false)
+const { t, isEn, toggleLang } = useI18n()
 
 const isDark = computed(() => props.theme === 'dark')
 
-
-const navLinks = [
-  { name: 'Accueil', path: '/' },
-  { name: 'Projets', path: '/projets' },
-  { name: 'Scolarité', path: '/scolarite' },
-  { name: 'Activités', path: '/activite' },
-  { name: 'Contact', path: '/contact' }
-]
+const navLinks = computed(() => [
+  { name: t('nav.home'), path: '/' },
+  { name: t('nav.projects'), path: '/projets' },
+  { name: t('nav.education'), path: '/scolarite' },
+  { name: t('nav.internship'), path: '/stage' },
+  { name: t('nav.activities'), path: '/activite' },
+  { name: t('nav.contact'), path: '/contact' }
+])
 </script>

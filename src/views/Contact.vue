@@ -135,7 +135,52 @@
             </p>
           </div>
 
-          <form @submit.prevent="handleSubmit" class="space-y-4">
+          <!-- Notification Succès -->
+          <div
+            v-if="submitSuccess"
+            class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 space-y-3 animate-fade-in"
+          >
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-xl text-emerald-500 mt-0.5 shrink-0"></i>
+              <div>
+                <h3 class="font-bold text-sm">Message envoyé avec succès !</h3>
+                <p class="text-xs text-emerald-700/90 dark:text-emerald-400 mt-0.5">
+                  Merci pour votre prise de contact. Votre message a bien été transmis, je vous répondrai sous 24h ouvrées.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              @click="submitSuccess = false"
+              class="text-xs font-semibold underline hover:no-underline text-emerald-600 dark:text-emerald-400"
+            >
+              Envoyer un autre message
+            </button>
+          </div>
+
+          <!-- Notification Erreur / Fallback -->
+          <div
+            v-if="submitError"
+            class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-800 dark:text-rose-300 text-xs flex items-start gap-3"
+          >
+            <i class="fa-solid fa-triangle-exclamation text-base text-rose-500 mt-0.5 shrink-0"></i>
+            <div class="space-y-1.5 flex-1">
+              <p>{{ submitError }}</p>
+              <button
+                type="button"
+                @click="openMailtoFallback"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-600 text-white font-semibold text-xs hover:bg-rose-700 transition-colors"
+              >
+                <i class="fa-solid fa-envelope text-[11px]"></i>
+                <span>Ouvrir dans mon logiciel de messagerie</span>
+              </button>
+            </div>
+          </div>
+
+          <form v-if="!submitSuccess" @submit.prevent="handleSubmit" class="space-y-4">
+            <!-- Honeypot anti-spam caché -->
+            <input type="text" name="_honey" v-model="honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="space-y-1.5">
                 <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">
@@ -190,13 +235,23 @@
               ></textarea>
             </div>
 
-            <div class="pt-2">
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <button
                 type="submit"
-                class="btn-primary w-full sm:w-auto"
+                :disabled="isSubmitting"
+                class="btn-primary flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <i class="fa-solid fa-paper-plane text-xs"></i>
-                <span>Ouvrir mon client mail</span>
+                <i v-if="isSubmitting" class="fa-solid fa-spinner fa-spin text-xs"></i>
+                <i v-else class="fa-solid fa-paper-plane text-xs"></i>
+                <span>{{ isSubmitting ? 'Envoi en cours...' : 'Envoyer mon message' }}</span>
+              </button>
+
+              <button
+                type="button"
+                @click="openMailtoFallback"
+                class="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-slate-300 underline py-2 text-center"
+              >
+                Ouvrir dans mon logiciel mail
               </button>
             </div>
           </form>
@@ -252,6 +307,10 @@
 import { ref } from 'vue'
 
 const copiedState = ref(null)
+const isSubmitting = ref(false)
+const submitSuccess = ref(false)
+const submitError = ref('')
+const honeypot = ref('')
 
 const form = ref({
   name: '',
@@ -274,11 +333,53 @@ const copyText = async (text, key) => {
   }
 }
 
-const handleSubmit = () => {
-  const subject = encodeURIComponent(`[Portfolio] ${form.value.subject} - ${form.value.name}`)
+const openMailtoFallback = () => {
+  const subject = encodeURIComponent(`[Portfolio] ${form.value.subject || 'Contact'} - ${form.value.name || 'Visiteur'}`)
   const body = encodeURIComponent(
     `Bonjour Mattéo,\n\n${form.value.message}\n\nDe : ${form.value.name} (${form.value.email})`
   )
   window.location.href = `mailto:contact@matteoriviere.fr?subject=${subject}&body=${body}`
+}
+
+const handleSubmit = async () => {
+  // Détection bot via champ honeypot
+  if (honeypot.value) {
+    submitSuccess.value = true
+    return
+  }
+
+  isSubmitting.value = true
+  submitError.value = ''
+  submitSuccess.value = false
+
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/contact@matteoriviere.fr', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: form.value.name,
+        email: form.value.email,
+        _subject: `[Portfolio] ${form.value.subject} - ${form.value.name}`,
+        message: form.value.message,
+        _template: 'table'
+      })
+    })
+
+    const data = await res.json()
+    if (res.ok && (data.success === 'true' || data.success === true)) {
+      submitSuccess.value = true
+      form.value = { name: '', email: '', subject: '', message: '' }
+    } else {
+      throw new Error(data.message || 'Erreur lors de l\'envoi direct')
+    }
+  } catch (err) {
+    console.error('Erreur formulaire:', err)
+    submitError.value = 'L\'envoi direct a rencontré une difficulté réseau ou un bloqueur. Vous pouvez envoyer directement via votre client mail :'
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
