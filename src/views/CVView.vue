@@ -71,6 +71,10 @@
               <i class="fa-brands fa-github text-blue-600 text-[11px]"></i>
               <a href="https://github.com/Scorpion-g" target="_blank" rel="noopener noreferrer" class="hover:underline">github.com/Scorpion-g</a>
             </div>
+            <div class="flex items-center gap-1.5">
+              <i class="fa-solid fa-globe text-blue-600 text-[11px]"></i>
+              <a href="https://matteoriviere.fr" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-900 hover:underline">matteoriviere.fr</a>
+            </div>
           </div>
         </div>
 
@@ -274,7 +278,7 @@ const portfolioUrl = computed(() => {
   if (typeof window !== 'undefined') {
     return window.location.origin + (import.meta.env.BASE_URL || '/')
   }
-  return 'https://scorpion-g.github.io/My-Portfolio/'
+  return 'https://matteoriviere.fr/'
 })
 
 onMounted(async () => {
