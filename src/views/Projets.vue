@@ -66,7 +66,7 @@
             <span>Front-end & IHM</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Créer des interfaces réactives, esthétiques et intuitives, avec un soin particulier porté à la lisibilité et à l'expérience utilisateur.
+            Créer des interfaces réactives et intuitives (Vue.js, Angular, Tailwind CSS, XAML), avec un soin particulier porté à la lisibilité et à l'expérience utilisateur.
           </p>
         </div>
 
@@ -76,7 +76,7 @@
             <span>Architecture & Data</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Structurer la logique applicative, modéliser des bases de données SQL robustes et gérer des flux de télémétrie en temps réel.
+            Structurer la logique métier d'APIs (Symfony, Node.js), modéliser des bases de données SQL robustes (PostgreSQL) et gérer des flux temps réel.
           </p>
         </div>
 

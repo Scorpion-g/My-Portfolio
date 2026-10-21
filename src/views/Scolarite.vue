@@ -63,19 +63,19 @@
           <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-base">
             <i class="fa-solid fa-code"></i>
           </div>
-          <h3 class="font-bold text-slate-900 dark:text-white text-base">Développement Web & Front-end</h3>
+          <h3 class="font-bold text-slate-900 dark:text-white text-base">Développement Web Front-end</h3>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Conception d'interfaces modernes et accessibles avec Vue.js 3, HTML5/CSS3, Tailwind CSS et JavaScript moderne (ES6+).
+            Conception d'interfaces modernes, réactives et accessibles avec <strong>Vue.js 3, Angular</strong>, HTML5/CSS3, Tailwind CSS et JavaScript moderne (ES6+).
           </p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-2.5">
           <div class="w-9 h-9 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-base">
-            <i class="fa-solid fa-database"></i>
+            <i class="fa-solid fa-server"></i>
           </div>
-          <h3 class="font-bold text-slate-900 dark:text-white text-base">Données & Persistance</h3>
+          <h3 class="font-bold text-slate-900 dark:text-white text-base">Back-end, Frameworks & Data</h3>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Modélisation de données (MCD, MLD), requêtage SQL avancé, optimisation d'index et gestion de bases de données relationnelles avec PostgreSQL.
+            Architecture d'APIs REST avec <strong>Symfony (PHP 8)</strong> et Node.js, modélisation conceptuelle (MCD/MLD) et bases relationnelles <strong>PostgreSQL</strong>.
           </p>
         </div>
 
@@ -91,11 +91,11 @@
 
         <div class="p-6 rounded-2xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-2.5">
           <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-base">
-            <i class="fa-solid fa-server"></i>
+            <i class="fa-brands fa-docker"></i>
           </div>
-          <h3 class="font-bold text-slate-900 dark:text-white text-base">Systèmes, Linux & Réseaux</h3>
+          <h3 class="font-bold text-slate-900 dark:text-white text-base">Systèmes, Linux & DevOps</h3>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Administration Linux, scripts shell, configuration de serveurs, conteneurs Docker et principes de déploiement Kubernetes.
+            Administration Linux & Vim, scripts shell automatisés, conteneurs <strong>Docker</strong> et principes de déploiement Kubernetes.
           </p>
         </div>
 

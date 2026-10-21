@@ -106,7 +106,7 @@
         </p>
 
         <p>
-          Ma passion pour l'informatique a commencé dès la classe de 3ème avec la découverte de <strong>Linux et de l'éditeur Vim</strong>. Ce qui n'était au départ qu'une curiosité est devenu une véritable exigence : comprendre le fonctionnement des systèmes sous le capot, écrire un code propre et structurer des applications performantes. Aujourd'hui, je maîtrise l'écosystème web moderne avec <strong>Vue.js 3, JavaScript (ES6+), Tailwind CSS, Node.js et PostgreSQL</strong>.
+          Ma passion pour l'informatique a commencé dès la classe de 3ème avec la découverte de <strong>Linux et de l'éditeur Vim</strong>. Ce qui n'était au départ qu'une curiosité est devenu une véritable exigence : comprendre le fonctionnement des systèmes sous le capot, écrire un code propre et structurer des applications performantes. Aujourd'hui, je maîtrise l'écosystème web moderne avec <strong>Vue.js 3, Angular, Symfony (PHP), Node.js, Tailwind CSS et PostgreSQL</strong>.
         </p>
 
         <p>

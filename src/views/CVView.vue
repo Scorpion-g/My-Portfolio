@@ -216,15 +216,15 @@
           <div class="space-y-1 text-xs text-slate-700">
             <div>
               <strong class="text-slate-950">Front-end :</strong>
-              <span class="text-slate-600"> Vue.js 3, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</span>
+              <span class="text-slate-600"> Vue.js 3, Angular, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</span>
             </div>
             <div>
               <strong class="text-slate-950">Back-end & Données :</strong>
-              <span class="text-slate-600"> Node.js, API REST, SQL (PostgreSQL), PHP, Ruby</span>
+              <span class="text-slate-600"> Symfony, PHP 8, Node.js, API REST, SQL (PostgreSQL), C#</span>
             </div>
             <div>
               <strong class="text-slate-950">DevOps & Déploiement :</strong>
-              <span class="text-slate-600"> Git, GitLab CI, Kubernetes, Playwright, Allure, Linux, Docker</span>
+              <span class="text-slate-600"> Docker, Git, GitLab CI, Kubernetes, Playwright, Allure, Linux & Vim</span>
             </div>
             <div>
               <strong class="text-slate-950">Gestion & IA :</strong>
@@ -307,12 +307,25 @@ const printCV = () => {
 }
 
 @media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 6mm 10mm;
+  }
   .cv-sheet {
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+  .cv-header {
+    padding-bottom: 8px !important;
+    margin-bottom: 8px !important;
+  }
+  section {
+    margin-bottom: 8px !important;
   }
 }
 </style>
