@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-6 pt-2 pb-12">
+  <div class="space-y-6 pt-2 pb-12 print:p-0 print:m-0 print:space-y-0">
     <!-- BARRE D'ACTIONS SUPÉRIEURE (Masquée à l'impression) -->
     <div class="no-print flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-white/90 dark:bg-[#111827]/85 backdrop-blur-md border border-slate-200/90 dark:border-white/[0.08] shadow-sm">
       <div class="flex items-center gap-3">
@@ -61,12 +61,12 @@
           </div>
         </div>
 
-        <!-- QR Code vectoriel avec bordure nette et anti-aliasing désactivé -->
+        <!-- QR Code vectoriel avec anti-aliasing désactivé -->
         <div class="shrink-0 flex flex-col items-center sm:items-end text-center sm:text-right pt-1 sm:pt-0">
           <div
             v-if="qrCodeSvg"
             v-html="qrCodeSvg"
-            class="qr-code-box w-16 h-16 p-1 bg-white border border-slate-900 rounded-none shadow-none"
+            class="qr-code-box w-16 h-16 bg-white border-0 rounded-none shadow-none"
             title="Scannez ce QR Code pour ouvrir le portfolio interactif"
           ></div>
           <span class="text-[9px] font-bold text-slate-700 mt-1 uppercase tracking-wider">
@@ -85,7 +85,7 @@
           <span>Clermont-Ferrand, le {{ formattedDate }}</span>
         </div>
 
-        <div class="letter-object p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs">
+        <div class="letter-object py-1 text-xs">
           <strong class="text-slate-950 font-bold block mb-0.5">
             Objet : Candidature — Stage de fin d'études en développement web (18 semaines)
           </strong>
@@ -157,9 +157,9 @@
         </div>
 
         <div class="text-right">
-          <div class="inline-block px-3 py-1 rounded-lg bg-blue-50 text-blue-700 text-[11px] font-bold border border-blue-200">
+          <span class="text-blue-600 font-bold text-xs tracking-wide">
             Stage 18 semaines • 2027
-          </div>
+          </span>
         </div>
       </div>
     </div>
@@ -244,7 +244,9 @@ onMounted(async () => {
     margin-bottom: 6px !important;
   }
   .letter-object {
-    padding: 5px 8px !important;
+    padding: 2px 0 !important;
+    background: transparent !important;
+    border: none !important;
   }
   .letter-content {
     gap: 4px !important;

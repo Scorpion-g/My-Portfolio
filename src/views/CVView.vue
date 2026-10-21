@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-6">
+  <div class="space-y-6 print:space-y-0 print:p-0 print:m-0">
     <!-- Barre d'outils (Masquée à l'impression) -->
     <div class="no-print flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-white/80 dark:bg-[#111827]/80 backdrop-blur-md border border-slate-200/80 dark:border-white/[0.08] shadow-sm">
       <div class="flex items-center gap-3">
@@ -79,7 +79,7 @@
           <div
             v-if="qrCodeSvg"
             v-html="qrCodeSvg"
-            class="qr-code-box w-20 h-20 p-1 bg-white border border-slate-900 rounded-none shadow-none"
+            class="qr-code-box w-20 h-20 bg-white border-0 rounded-none shadow-none"
             title="Scannez ce QR Code pour ouvrir le portfolio en ligne"
           ></div>
           <span class="text-[10px] font-bold text-slate-600 mt-1 uppercase tracking-wider">
@@ -115,7 +115,7 @@
               </h3>
               <p class="text-xs text-slate-500">Lyon (Stage de 2e année de BUT — 8 semaines)</p>
             </div>
-            <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded self-start sm:self-center">
+            <span class="text-xs font-semibold text-slate-600 self-start sm:self-center">
               Juin 2025 — Août 2025
             </span>
           </div>
@@ -147,7 +147,7 @@
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs text-slate-700">
-          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+          <div class="py-1">
             <div class="flex items-center justify-between mb-1">
               <h3 class="font-bold text-slate-950">AéroStat — Guidage GPS temps réel & Météo</h3>
               <span class="text-[10px] text-slate-500 font-medium">3e année (Équipe de 3)</span>
@@ -160,7 +160,7 @@
             </p>
           </div>
 
-          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+          <div class="py-1">
             <div class="flex items-center justify-between mb-1">
               <h3 class="font-bold text-slate-950">Sukaijo — Application Logicielle IHM</h3>
               <span class="text-[10px] text-slate-500 font-medium">Équipe de 3 (3 mois)</span>

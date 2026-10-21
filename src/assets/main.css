@@ -100,26 +100,39 @@
   animation: float-gentle 4s ease-in-out infinite;
 }
 
-/* Règles d'impression pour un export PDF propre */
+/* Règles d'impression pour un export PDF propre sans aucun encadré parasite */
 @media print {
-  .site-nav, .site-header, footer, .no-print, .fixed {
+  .site-nav, .site-header, footer, .no-print, .fixed, nav, button {
     display: none !important;
   }
-  body, html {
+  body, html, #app, #app > div, main {
     background: #ffffff !important;
+    background-color: #ffffff !important;
     color: #0f172a !important;
     padding: 0 !important;
     margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  main {
+  .cv-sheet, .letter-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
+    width: 100% !important;
+    background: #ffffff !important;
   }
   @page {
     size: A4 portrait;
-    margin: 8mm 10mm;
+    margin: 8mm 12mm 6mm 12mm;
   }
 }
