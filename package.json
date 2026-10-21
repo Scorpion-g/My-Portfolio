@@ -11,11 +11,15 @@
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^6.0.3",
+    "qrcode": "^1.5.4",
     "vue": "^3.3.0",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.6.1",
     "gh-pages": "^6.3.0",
+    "postcss": "^8.5.31",
+    "tailwindcss": "^3.4.19",
     "vite": "^5.0.0"
   }
 }
