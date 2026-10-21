@@ -1,117 +1,139 @@
 <template>
-  <nav class="site-nav" role="navigation">
-    <div class="nav-top container">
-      <button
-        class="nav-toggle"
-        :class="{ 'is-open': open }"
-        @click="open = !open"
-        :aria-expanded="String(open)"
-        aria-controls="primary-navigation"
-        :aria-label="open ? 'Fermer le menu' : 'Ouvrir le menu'"
+  <header class="site-header no-print sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 transition-all duration-300">
+    <div
+      class="max-w-[1440px] mx-auto rounded-2xl bg-white/90 dark:bg-[#111827]/80 backdrop-blur-xl border border-slate-200/90 dark:border-white/[0.08] shadow-sm dark:shadow-2xl px-4 sm:px-6 py-3 transition-all"
+    >
+      <div class="flex items-center justify-between">
+        <!-- Logo / Marque -->
+        <RouterLink to="/" class="flex items-center gap-3 group focus:outline-none">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white font-extrabold flex items-center justify-center text-base tracking-tight shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform"
+          >
+            MR
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Mattéo Rivière
+            </span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
+              Développeur Web
+            </span>
+          </div>
+        </RouterLink>
+
+        <!-- Navigation Desktop -->
+        <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/50 p-1.5 rounded-xl border border-slate-200/50 dark:border-white/[0.05]">
+          <RouterLink
+            v-for="link in navLinks"
+            :key="link.path"
+            :to="link.path"
+            class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all"
+            :class="[
+              $route.path === link.path
+                ? 'bg-white dark:bg-slate-700/80 text-blue-600 dark:text-white shadow-sm font-semibold'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/40'
+            ]"
+          >
+            {{ link.name }}
+          </RouterLink>
+        </nav>
+
+        <!-- Actions Desktop & Mobile Toggle -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Bouton CV -->
+          <RouterLink
+            to="/cv"
+            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95"
+            :class="[
+              $route.path === '/cv'
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'text-blue-700 dark:text-blue-300 bg-blue-50 hover:bg-blue-100 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 border border-blue-200 dark:border-blue-500/20'
+            ]"
+            title="Consulter mon CV en ligne"
+          >
+            <i class="fa-regular fa-file-lines text-xs"></i>
+            <span>CV</span>
+          </RouterLink>
+
+          <!-- Bouton Thème Sombre/Clair -->
+          <button
+            type="button"
+            @click="onToggleTheme"
+            class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all active:scale-90 focus:outline-none"
+            :aria-label="isDark ? 'Passer au mode clair' : 'Passer au mode sombre'"
+            :title="isDark ? 'Passer au mode clair' : 'Passer au mode sombre'"
+          >
+            <i :class="isDark ? 'fa-solid fa-sun text-amber-400' : 'fa-solid fa-moon text-blue-600'"></i>
+          </button>
+
+          <!-- Bouton Menu Mobile (Hamburger) -->
+          <button
+            type="button"
+            @click="mobileOpen = !mobileOpen"
+            class="md:hidden w-9 h-9 rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none"
+            :aria-expanded="mobileOpen"
+            aria-label="Ouvrir le menu"
+          >
+            <i :class="mobileOpen ? 'fa-solid fa-xmark text-base' : 'fa-solid fa-bars text-base'"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Mobile Déroulant -->
+      <div
+        v-if="mobileOpen"
+        class="md:hidden pt-4 pb-2 border-t border-slate-200/70 dark:border-white/[0.08] mt-3 space-y-1"
       >
-        <span class="bar" aria-hidden="true"></span>
-      </button>
-    </div>
+        <RouterLink
+          v-for="link in navLinks"
+          :key="link.path"
+          :to="link.path"
+          @click="mobileOpen = false"
+          class="block px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all"
+          :class="[
+            $route.path === link.path
+              ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 font-semibold'
+              : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+          ]"
+        >
+          {{ link.name }}
+        </RouterLink>
 
-    <div :class="['nav-links', 'container', { 'is-open': open }]" id="primary-navigation">
-      <div class="nav-links__group">
-        <RouterLink to="/" class="nav-link" @click="closeOnNavigate">Accueil</RouterLink>
-        <RouterLink to="/scolarite" class="nav-link" @click="closeOnNavigate">Scolarité</RouterLink>
-        <RouterLink to="/activite" class="nav-link" @click="closeOnNavigate">Activités</RouterLink>
-        <RouterLink to="/projets" class="nav-link" @click="closeOnNavigate">Projets</RouterLink>
-        <RouterLink to="/contact" class="nav-link" @click="closeOnNavigate">Contact</RouterLink>
-      </div>
-
-      <div class="nav-actions">
-        <a class="cv-button" href="/My-Portfolio/CV.pdf" download>Télécharger CV</a>
-        <label class="theme-switch" :class="{ 'is-light': isLight }">
-          <input
-            class="switch-input"
-            type="checkbox"
-            :checked="isLight"
-            @change="onToggleTheme"
-            aria-label="Basculer le thème"
-          />
-          <span class="switch-track">
-            <span class="switch-thumb"></span>
-          </span>
-          <span class="switch-text">{{ isLight ? 'Clair' : 'Sombre' }}</span>
-        </label>
+        <div class="pt-2">
+          <RouterLink
+            to="/cv"
+            @click="mobileOpen = false"
+            class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20"
+          >
+            <i class="fa-regular fa-file-lines text-xs"></i>
+            <span>Consulter mon CV</span>
+          </RouterLink>
+        </div>
       </div>
     </div>
-  </nav>
+  </header>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { RouterLink } from 'vue-router'
+import { ref, computed } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 
 const props = defineProps({
   theme: { type: String, required: true },
   onToggleTheme: { type: Function, required: true }
 })
 
-const isLight = computed(() => props.theme === 'light')
+const route = useRoute()
+const mobileOpen = ref(false)
 
-const open = ref(false)
+const isDark = computed(() => props.theme === 'dark')
 
-const closeOnNavigate = () => { open.value = false }
 
-// Fermer le menu quand la fenêtre devient large
-const onResize = () => {
-  if (window.innerWidth >= 900) open.value = false
-}
-
-onMounted(() => {
-  window.addEventListener('resize', onResize)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', onResize)
-})
+const navLinks = [
+  { name: 'Accueil', path: '/' },
+  { name: 'Projets', path: '/projets' },
+  { name: 'Scolarité', path: '/scolarite' },
+  { name: 'Activités', path: '/activite' },
+  { name: 'Contact', path: '/contact' }
+]
 </script>
-
-<style scoped>
-/* Styles légers spécifiques au composant pour le comportement responsive */
-.site-nav{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04);width:100%}
-.nav-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-
-/* Toggle button (visible sur mobile) */
-.nav-toggle{background:transparent;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s}
-.nav-toggle .bar{display:block;width:22px;height:2px;background:currentColor;position:relative;transition:background 0.2s}
-.nav-toggle .bar::before,.nav-toggle .bar::after{content:'';position:absolute;left:0;width:22px;height:2px;background:currentColor;transition:transform 0.3s, top 0.3s}
-.nav-toggle .bar::before{top:-7px}
-.nav-toggle .bar::after{top:7px}
-
-/* Animation hamburger -> X quand ouvert */
-.nav-toggle.is-open .bar{background:transparent}
-.nav-toggle.is-open .bar::before{top:0;transform:rotate(45deg)}
-.nav-toggle.is-open .bar::after{top:0;transform:rotate(-45deg)}
-
-/* Liens cachés par défaut sur mobile */
-.nav-links{display:none;flex-direction:column;gap:10px;padding:12px 0}
-.nav-links.is-open{display:flex}
-.nav-links__group{display:flex;flex-direction:column;gap:10px}
-.nav-link{display:block;text-decoration:none;padding:8px 0;color:inherit}
-
-.nav-actions{display:flex;flex-direction:column;gap:8px;margin-top:6px;width:100%;align-items:flex-end}
-
-/* CV button */
-.cv-button{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;background:rgba(90,169,255,0.12);border:1px solid var(--border)}
-.theme-switch{display:inline-flex;align-items:center;gap:8px}
-
-/* Desktop: affiche la nav en ligne et masque le toggle */
-@media (min-width:900px){
-  .nav-toggle{display:none}
-  .site-nav{display:block;padding:12px 20px}
-  .nav-top{display:none}
-
-  /* Toujours afficher les liens en desktop */
-  .nav-links{display:flex;flex-direction:row;align-items:center;gap:16px;padding:0;justify-content:space-between;width:100%;flex-wrap:nowrap}
-  .nav-links__group{display:flex;flex-direction:row;align-items:center;gap:16px;flex-wrap:nowrap}
-  .nav-links > .nav-link{flex:0;text-align:left;padding:6px 10px;white-space:nowrap}
-
-  .nav-actions{margin-left:auto;flex:0 0 auto;flex-direction:row;margin-top:0;gap:12px}
-  .nav-link{padding:6px 10px}
-}
-</style>
