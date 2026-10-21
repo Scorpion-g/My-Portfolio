@@ -28,12 +28,12 @@
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
         <div class="flex items-center gap-2">
           <span>© {{ currentYear }} Mattéo Rivière.</span>
-          <span>Étudiant en BUT Informatique • Aubière</span>
+          <span>{{ t('footer.copyright_sub') }}</span>
         </div>
 
         <div class="flex items-center gap-6">
           <RouterLink to="/cv" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            Mon CV
+            {{ t('footer.cv_link') }}
           </RouterLink>
           <a
             href="https://github.com/Scorpion-g"
@@ -71,7 +71,9 @@ import { ref, onMounted } from 'vue'
 import { RouterView, RouterLink } from 'vue-router'
 import SiteNav from './components/SiteNav.vue'
 import CommandPalette from './components/CommandPalette.vue'
+import { useI18n } from './composables/useI18n'
 
+const { t } = useI18n()
 const currentYear = new Date().getFullYear()
 const isPaletteOpen = ref(false)
 

@@ -36,7 +36,7 @@
           class="w-full max-w-xl rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-white/[0.1] shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in"
           role="dialog"
           aria-modal="true"
-          aria-label="Recherche rapide et commandes"
+          :aria-label="isEn ? 'Quick search and commands' : 'Recherche rapide et commandes'"
         >
           <!-- Barre de saisie -->
           <div class="relative flex items-center px-4 border-b border-slate-200 dark:border-white/[0.08]">
@@ -45,7 +45,7 @@
               ref="searchInput"
               v-model="query"
               type="text"
-              placeholder="Rechercher une page, un projet, une action..."
+              :placeholder="t('palette.placeholder')"
               class="w-full py-4 text-sm bg-transparent text-slate-900 dark:text-white placeholder-slate-400 outline-none"
               @keydown.down.prevent="navigateResults(1)"
               @keydown.up.prevent="navigateResults(-1)"
@@ -53,7 +53,7 @@
               @keydown.esc.prevent="close"
             />
             <span class="text-[10px] font-mono font-semibold px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 border border-slate-200 dark:border-white/[0.08]">
-              Échap
+              {{ t('palette.esc') }}
             </span>
           </div>
 
@@ -125,15 +125,15 @@
               class="py-12 text-center text-sm text-slate-500 dark:text-slate-400"
             >
               <i class="fa-solid fa-inbox text-2xl mb-2 opacity-50 block"></i>
-              Aucun résultat pour « {{ query }} »
+              {{ t('palette.no_result') }} « {{ query }} »
             </div>
           </div>
 
           <!-- Raccourcis en bas -->
           <div class="p-3 bg-slate-50 dark:bg-slate-900/80 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
             <div class="flex items-center gap-3">
-              <span><kbd class="font-mono bg-white dark:bg-slate-800 border px-1.5 py-0.5 rounded shadow-xs">↑</kbd> <kbd class="font-mono bg-white dark:bg-slate-800 border px-1.5 py-0.5 rounded shadow-xs">↓</kbd> Naviguer</span>
-              <span><kbd class="font-mono bg-white dark:bg-slate-800 border px-1.5 py-0.5 rounded shadow-xs">Entrée</kbd> Ouvrir</span>
+              <span><kbd class="font-mono bg-white dark:bg-slate-800 border px-1.5 py-0.5 rounded shadow-xs">↑</kbd> <kbd class="font-mono bg-white dark:bg-slate-800 border px-1.5 py-0.5 rounded shadow-xs">↓</kbd> {{ t('palette.nav_hint') }}</span>
+              <span><kbd class="font-mono bg-white dark:bg-slate-800 border px-1.5 py-0.5 rounded shadow-xs">{{ isEn ? 'Enter' : 'Entrée' }}</kbd> {{ t('palette.open_hint') }}</span>
             </div>
             <span class="hidden sm:inline">Portfolio Mattéo Rivière</span>
           </div>
@@ -146,6 +146,7 @@
 <script setup>
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from '../composables/useI18n'
 
 const props = defineProps({
   modelValue: {
@@ -156,6 +157,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'toggle-theme'])
 
+const { t, isEn } = useI18n()
 const router = useRouter()
 const searchInput = ref(null)
 const query = ref('')
@@ -182,53 +184,54 @@ const showToast = (msg) => {
 const copyToClipboard = async (text, label) => {
   try {
     await navigator.clipboard.writeText(text)
-    showToast(`${label} copié dans le presse-papier !`)
+    showToast(`${label} ${t('palette.toast_copied')}`)
   } catch (err) {
     console.error('Erreur de copie', err)
   }
 }
 
-// Groupes d'actions
-const rawGroups = [
+// Groupes d'actions dynamiques réactifs à la langue
+const rawGroups = computed(() => [
   {
-    title: 'Navigation',
+    title: t('palette.group_nav'),
     items: [
-      { id: 'home', label: 'Accueil', subtitle: 'Présentation & compétences clés', icon: 'fa-solid fa-house', action: () => router.push('/') },
-      { id: 'projects', label: 'Projets', subtitle: 'Sparcky, Sukaijo, Tests Playwright, Aérostat...', icon: 'fa-solid fa-laptop-code', action: () => router.push('/projets') },
-      { id: 'scolarite', label: 'Scolarité & Parcours', subtitle: 'BUT Informatique & Bac STI2D', icon: 'fa-solid fa-graduation-cap', action: () => router.push('/scolarite') },
-      { id: 'stage', label: 'Stage & Calendrier', subtitle: '18 semaines (Fév - Août 2027)', icon: 'fa-solid fa-calendar-check', badge: '18 sem.', action: () => router.push('/stage') },
-      { id: 'contact', label: 'Contact', subtitle: 'Formulaire direct & coordonnées', icon: 'fa-solid fa-envelope', action: () => router.push('/contact') },
-      { id: 'cv', label: 'CV Interactif & PDF', subtitle: 'Visualiser ou imprimer le CV', icon: 'fa-regular fa-file-lines', badge: 'PDF', action: () => router.push('/cv') },
-      { id: 'lettre', label: 'Lettre de Motivation', subtitle: 'Format 1 page pour stage de 3e année', icon: 'fa-solid fa-file-pen', badge: 'PDF', action: () => router.push('/lettre') }
+      { id: 'home', label: t('nav.home'), subtitle: isEn.value ? 'Presentation & core skills' : 'Présentation & compétences clés', icon: 'fa-solid fa-house', action: () => router.push('/') },
+      { id: 'projects', label: t('nav.projects'), subtitle: 'AéroStat, OSPI Tests, Sukaijo, Sparcky...', icon: 'fa-solid fa-laptop-code', action: () => router.push('/projets') },
+      { id: 'scolarite', label: t('nav.education'), subtitle: isEn.value ? 'B.S. in Computer Science & High School' : 'BUT Informatique & Bac Général', icon: 'fa-solid fa-graduation-cap', action: () => router.push('/scolarite') },
+      { id: 'stage', label: t('nav.internship'), subtitle: isEn.value ? '18 weeks (Feb - Aug 2027)' : '18 semaines (Fév - Août 2027)', icon: 'fa-solid fa-calendar-check', badge: isEn.value ? '18 w.' : '18 sem.', action: () => router.push('/stage') },
+      { id: 'activite', label: t('nav.activities'), subtitle: isEn.value ? 'Boxing, Linux & Vim, Feel-Good Music' : 'Boxe anglaise, Linux & Vim, Musique Feel-Good', icon: 'fa-solid fa-bolt', action: () => router.push('/activite') },
+      { id: 'contact', label: t('nav.contact'), subtitle: isEn.value ? 'Direct form & contact details' : 'Formulaire direct & coordonnées', icon: 'fa-solid fa-envelope', action: () => router.push('/contact') },
+      { id: 'cv', label: t('nav.cv'), subtitle: isEn.value ? 'Interactive Resume & printable PDF' : 'CV Interactif & PDF imprimable', icon: 'fa-regular fa-file-lines', badge: 'PDF', action: () => router.push('/cv') },
+      { id: 'lettre', label: isEn.value ? 'Cover Letter' : 'Lettre de Motivation', subtitle: isEn.value ? '1-page letter for 3rd year internship' : 'Format 1 page pour stage de 3e année', icon: 'fa-solid fa-file-pen', badge: 'PDF', action: () => router.push('/lettre') }
     ]
   },
   {
-    title: 'Projets Phares',
+    title: t('palette.group_projects'),
     items: [
-      { id: 'p-sparcky', label: 'Projet Sparcky', subtitle: 'Bot Discord multifonctions & automatisation Node.js', icon: 'fa-brands fa-discord', action: () => router.push('/projets#sparcky') },
-      { id: 'p-sukaijo', label: 'Projet Sukaijo', subtitle: 'Plateforme & simulateur spatial Vue.js', icon: 'fa-solid fa-rocket', action: () => router.push('/projets#sukaijo') },
-      { id: 'p-playwright', label: 'Tests E2E OSPI Playwright', subtitle: 'Automatisation & assurance qualité logicielle CI/CD', icon: 'fa-solid fa-vial-circle-check', action: () => router.push('/projets#ospi-tests') },
-      { id: 'p-aerostat', label: 'Projet Ballon Aérostat', subtitle: 'Système embarqué & télémétrie Raspberry Pi / Python', icon: 'fa-solid fa-satellite-dish', action: () => router.push('/projets#aerostat') }
+      { id: 'p-aerostat', label: 'AéroStat', subtitle: isEn.value ? 'Real-time GPS tracking & AROME weather' : 'Guidage GPS temps réel (2s) & météo AROME', icon: 'fa-solid fa-location-arrow', action: () => router.push('/projets/aerostat') },
+      { id: 'p-playwright', label: 'OSPI Cloud Tests E2E', subtitle: isEn.value ? 'Playwright automated tests & GitLab CI' : 'Tests automatisés Playwright & GitLab CI', icon: 'fa-solid fa-vial-circle-check', action: () => router.push('/projets/ospi-cloud-e2e') },
+      { id: 'p-sukaijo', label: 'Sukaijo', subtitle: isEn.value ? 'Skyjo desktop card game in C# / .NET MAUI' : 'Jeu Skyjo en C# / .NET MAUI et XAML', icon: 'fa-solid fa-gamepad', action: () => router.push('/projets/sukaijo') },
+      { id: 'p-sparcky', label: 'Sparcky', subtitle: isEn.value ? 'Multifunction Discord Bot & Node.js' : 'Bot Discord multifonctions & Node.js', icon: 'fa-brands fa-discord', action: () => router.push('/projets/sparcky') }
     ]
   },
   {
-    title: 'Actions Rapides',
+    title: t('palette.group_actions'),
     items: [
-      { id: 'theme', label: 'Changer de thème', subtitle: 'Basculer mode sombre / clair', icon: 'fa-solid fa-circle-half-stroke', action: () => emit('toggle-theme') },
-      { id: 'copy-email', label: 'Copier mon email pro', subtitle: 'contact@matteoriviere.fr', icon: 'fa-solid fa-copy', action: () => copyToClipboard('contact@matteoriviere.fr', 'Email') },
-      { id: 'copy-phone', label: 'Copier mon numéro', subtitle: '07 78 13 16 90', icon: 'fa-solid fa-phone', action: () => copyToClipboard('0778131690', 'Téléphone') },
-      { id: 'open-linkedin', label: 'Ouvrir mon profil LinkedIn', subtitle: 'in/matteo-rivière-8664b8356', icon: 'fa-brands fa-linkedin', action: () => window.open('https://www.linkedin.com/in/matteo-rivière-8664b8356', '_blank') },
-      { id: 'open-github', label: 'Ouvrir mon GitHub', subtitle: 'github.com/Scorpion-g', icon: 'fa-brands fa-github', action: () => window.open('https://github.com/Scorpion-g', '_blank') }
+      { id: 'theme', label: t('palette.action_theme'), subtitle: t('palette.action_theme_sub'), icon: 'fa-solid fa-circle-half-stroke', action: () => emit('toggle-theme') },
+      { id: 'copy-email', label: t('palette.action_email'), subtitle: 'contact@matteoriviere.fr', icon: 'fa-solid fa-copy', action: () => copyToClipboard('contact@matteoriviere.fr', 'Email') },
+      { id: 'copy-phone', label: t('palette.action_phone'), subtitle: '07 78 13 16 90', icon: 'fa-solid fa-phone', action: () => copyToClipboard('0778131690', isEn.value ? 'Phone number' : 'Téléphone') },
+      { id: 'open-linkedin', label: t('palette.action_linkedin'), subtitle: 'in/matteo-rivière-8664b8356', icon: 'fa-brands fa-linkedin', action: () => window.open('https://www.linkedin.com/in/matteo-rivière-8664b8356', '_blank') },
+      { id: 'open-github', label: t('palette.action_github'), subtitle: 'github.com/Scorpion-g', icon: 'fa-brands fa-github', action: () => window.open('https://github.com/Scorpion-g', '_blank') }
     ]
   }
-]
+])
 
 // Filtrage
 const filteredGroups = computed(() => {
   const q = query.value.trim().toLowerCase()
   let counter = 0
 
-  return rawGroups
+  return rawGroups.value
     .map(group => {
       const filtered = group.items.filter(item => {
         if (!q) return true
@@ -268,9 +271,9 @@ watch(isOpen, async (val) => {
 })
 
 const navigateResults = (direction) => {
-  const total = flatItems.value.length
-  if (total === 0) return
-  selectedIndex.value = (selectedIndex.value + direction + total) % total
+  const count = flatItems.value.length
+  if (count === 0) return
+  selectedIndex.value = (selectedIndex.value + direction + count) % count
 }
 
 const selectCurrent = () => {
@@ -282,22 +285,30 @@ const selectCurrent = () => {
 
 const runAction = (item) => {
   close()
-  item.action()
+  if (item.action) {
+    item.action()
+  }
 }
 
-// Raccourci global Ctrl+K / Cmd+K
-const handleGlobalKeydown = (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+// Raccourci clavier global Ctrl+K / Cmd+K
+const handleKeydown = (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
     e.preventDefault()
     isOpen.value = !isOpen.value
   }
 }
 
 onMounted(() => {
-  window.addEventListener('keydown', handleGlobalKeydown)
+  window.addEventListener('keydown', handleKeydown)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleGlobalKeydown)
+  window.removeEventListener('keydown', handleKeydown)
 })
 </script>
+
+<style scoped>
+kbd {
+  font-family: inherit;
+}
+</style>

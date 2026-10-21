@@ -52,7 +52,7 @@
           <!-- Actions -->
           <div class="pt-4 border-t border-slate-200/60 dark:border-white/[0.08] flex items-center gap-3">
             <RouterLink :to="`/projets/${project.id}`" class="btn-primary text-xs py-2 px-4">
-              <span>Étude de cas détaillée</span>
+              <span>{{ t('timeline_card.case_study_btn') }}</span>
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </RouterLink>
 
@@ -75,6 +75,9 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
 
 defineProps({
   project: { type: Object, required: true },

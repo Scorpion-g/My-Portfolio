@@ -3,13 +3,13 @@
     <!-- En-tête de page -->
     <header class="pt-4 sm:pt-8 max-w-4xl">
       <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
-        Portfolio & Réalisations
+        {{ t('projects_page.badge') }}
       </div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-        Mes Projets
+        {{ t('projects_page.title') }}
       </h1>
       <p class="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-        Voici une sélection de mes réalisations techniques : des projets conçus en entreprise lors de mon stage, des défis académiques d'envergure menés en équipe à l'IUT (SAE), et des projets personnels d'automatisation.
+        {{ t('projects_page.desc') }}
       </p>
     </header>
 
@@ -22,7 +22,7 @@
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="Rechercher par mot-clé (Playwright, Vue.js, GPS, bot...)"
+            :placeholder="t('projects_page.search_placeholder')"
             class="w-full pl-9 pr-8 py-2.5 rounded-xl text-xs sm:text-sm bg-white/90 dark:bg-slate-800/80 border border-slate-200/80 dark:border-white/[0.08] focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-slate-800 dark:text-slate-100 placeholder-slate-400 outline-none transition-all shadow-xs"
           />
           <button
@@ -39,14 +39,14 @@
         <!-- Compteur de résultats -->
         <div class="text-xs text-slate-500 dark:text-slate-400 font-medium shrink-0 flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-blue-600 inline-block"></span>
-          <span>{{ filteredProjects.length }} projet{{ filteredProjects.length > 1 ? 's' : '' }} trouvé{{ filteredProjects.length > 1 ? 's' : '' }}</span>
+          <span>{{ filteredProjects.length }} {{ filteredProjects.length > 1 ? t('projects_page.found_multi') : t('projects_page.found_single') }}</span>
           <button
             v-if="searchQuery || selectedCategory !== 'Tous' || selectedTech !== 'Tous'"
             type="button"
             @click="resetFilters"
             class="ml-2 text-blue-600 dark:text-blue-400 hover:underline font-semibold"
           >
-            Réinitialiser
+            {{ t('projects_page.reset') }}
           </button>
         </div>
       </div>
@@ -54,7 +54,7 @@
       <!-- Filtres par catégorie -->
       <div class="space-y-2">
         <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-          Catégories
+          {{ t('projects_page.categories_title') }}
         </div>
         <div class="flex flex-wrap items-center gap-2">
           <button
@@ -69,7 +69,7 @@
                 : 'bg-white/90 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-white/[0.08]'
             ]"
           >
-            {{ cat }}
+            {{ cat === 'Tous' ? t('projects_page.all_cat') : cat }}
           </button>
         </div>
       </div>
@@ -77,7 +77,7 @@
       <!-- Filtres par technos populaires -->
       <div class="space-y-2 pt-1">
         <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-          Technologies
+          {{ t('projects_page.tech_title') }}
         </div>
         <div class="flex flex-wrap items-center gap-1.5">
           <button
@@ -92,7 +92,7 @@
                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 border border-transparent'
             ]"
           >
-            {{ tech }}
+            {{ tech === 'Tous' ? t('projects_page.all_cat') : tech }}
           </button>
         </div>
       </div>
@@ -112,14 +112,14 @@
         class="p-12 text-center rounded-2xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/80 dark:border-white/[0.08] space-y-3"
       >
         <i class="fa-solid fa-filter-circle-xmark text-3xl text-slate-400"></i>
-        <h3 class="font-bold text-slate-800 dark:text-slate-200">Aucun projet ne correspond à votre recherche</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400">Essayez d'autres mots-clés ou réinitialisez les filtres.</p>
+        <h3 class="font-bold text-slate-800 dark:text-slate-200">{{ t('projects_page.empty_title') }}</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400">{{ t('projects_page.empty_desc') }}</p>
         <button
           type="button"
           @click="resetFilters"
           class="btn-primary text-xs py-2 px-4"
         >
-          Voir tous les projets
+          {{ t('projects_page.empty_btn') }}
         </button>
       </div>
     </section>
@@ -128,13 +128,13 @@
     <section class="border-t border-slate-200/80 dark:border-white/[0.08] pt-12 sm:pt-16 space-y-8">
       <div class="max-w-3xl">
         <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">
-          <span>Acquis & Pratique</span>
+          <span>{{ t('projects_page.takeaway_tag') }}</span>
         </div>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Ce que ces projets m'ont appris
+          {{ t('projects_page.takeaway_title') }}
         </h2>
         <p class="mt-2 text-slate-700 dark:text-slate-300 text-base leading-relaxed">
-          Au-delà de la syntaxe d'un langage, chaque réalisation m'a permis de développer des réflexes d'ingénierie logicielle solides.
+          {{ t('projects_page.takeaway_desc') }}
         </p>
       </div>
 
@@ -142,40 +142,40 @@
         <div class="p-6 rounded-2xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-2">
           <div class="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white text-base mb-1">
             <i class="fa-solid fa-laptop-code text-blue-500"></i>
-            <span>Front-end & IHM</span>
+            <span>{{ t('projects_page.card1_title') }}</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Créer des interfaces réactives et intuitives (Vue.js, Angular, Tailwind CSS, XAML), avec un soin particulier porté à la lisibilité et à l'expérience utilisateur.
+            {{ t('projects_page.card1_desc') }}
           </p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-2">
           <div class="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white text-base mb-1">
             <i class="fa-solid fa-server text-indigo-500"></i>
-            <span>Architecture & Data</span>
+            <span>{{ t('projects_page.card2_title') }}</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Structurer la logique métier d'APIs (Symfony, Node.js), modéliser des bases de données SQL robustes (PostgreSQL) et gérer des flux temps réel.
+            {{ t('projects_page.card2_desc') }}
           </p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-2">
           <div class="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white text-base mb-1">
             <i class="fa-solid fa-vial-circle-check text-emerald-500"></i>
-            <span>Tests & CI/CD</span>
+            <span>{{ t('projects_page.card3_title') }}</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Automatiser les suites de tests E2E avec Playwright et configurer des pipelines GitLab CI pour livrer sereinement en production.
+            {{ t('projects_page.card3_desc') }}
           </p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-2">
           <div class="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white text-base mb-1">
             <i class="fa-solid fa-users text-amber-500"></i>
-            <span>Gestion & Travail d'équipe</span>
+            <span>{{ t('projects_page.card4_title') }}</span>
           </div>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Prioriser selon la méthode MoSCoW, découper les jalons dans YouTrack et coordonner les contributions Git avec clarté.
+            {{ t('projects_page.card4_desc') }}
           </p>
         </div>
       </div>
@@ -187,6 +187,9 @@
 import { ref, computed } from 'vue'
 import ProjectTimelineCard from '../components/ProjectTimelineCard.vue'
 import { projects } from '../data/projects'
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
 
 const selectedCategory = ref('Tous')
 const selectedTech = ref('Tous')

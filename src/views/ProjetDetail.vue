@@ -3,12 +3,12 @@
     <!-- Fil d'ariane & Bouton retour -->
     <div class="flex items-center justify-between gap-4">
       <nav class="flex items-center gap-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-        <RouterLink to="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Accueil</RouterLink>
+        <RouterLink to="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{{ t('project_detail.breadcrumb_home') }}</RouterLink>
         <span class="text-slate-300 dark:text-slate-600">/</span>
-        <RouterLink to="/projets" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projets</RouterLink>
+        <RouterLink to="/projets" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{{ t('project_detail.breadcrumb_projects') }}</RouterLink>
         <span class="text-slate-300 dark:text-slate-600">/</span>
         <span class="text-slate-800 dark:text-slate-200 font-medium truncate max-w-[200px] sm:max-w-none">
-          {{ project ? project.shortTitle : 'Détail' }}
+          {{ project ? project.shortTitle : t('project_detail.breadcrumb_detail') }}
         </span>
       </nav>
 
@@ -17,7 +17,7 @@
         class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
       >
         <i class="fa-solid fa-arrow-left text-[10px]"></i>
-        <span>Retour aux projets</span>
+        <span>{{ t('project_detail.back_btn') }}</span>
       </RouterLink>
     </div>
 
@@ -47,13 +47,13 @@
       <div class="w-16 h-16 rounded-full bg-red-500/10 text-red-500 mx-auto flex items-center justify-center text-2xl">
         <i class="fa-solid fa-triangle-exclamation"></i>
       </div>
-      <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Projet introuvable</h2>
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white">{{ t('project_detail.not_found_title') }}</h2>
       <p class="text-slate-500 dark:text-slate-400 max-w-md mx-auto text-sm">
-        Le projet demandé n'existe pas ou a été déplacé. Parcourez la liste pour explorer mes autres réalisations.
+        {{ t('project_detail.not_found_desc') }}
       </p>
       <div class="pt-2">
         <RouterLink to="/projets" class="btn-primary">
-          <span>Voir tous les projets</span>
+          <span>{{ t('project_detail.all_projects_btn') }}</span>
         </RouterLink>
       </div>
     </div>
@@ -65,7 +65,9 @@ import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import ProjectDetail from '../components/ProjectDetail.vue'
 import { projects } from '../data/projects'
+import { useI18n } from '../composables/useI18n'
 
+const { t } = useI18n()
 const route = useRoute()
 const project = computed(() => projects.find((item) => item.id === route.params.id))
 </script>

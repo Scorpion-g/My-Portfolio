@@ -7,7 +7,7 @@
         <div>
           <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5 flex items-center gap-2">
             <i class="fa-solid fa-circle-info text-blue-500 text-sm"></i>
-            <span>C'est quoi ce projet ?</span>
+            <span>{{ t('project_detail.what_is_title') }}</span>
           </h2>
           <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
             {{ project.summary }}
@@ -18,7 +18,7 @@
         <div class="pt-6 border-t border-slate-200/80 dark:border-white/[0.08]">
           <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5 flex items-center gap-2">
             <i class="fa-solid fa-bullseye text-indigo-500 text-sm"></i>
-            <span>Les objectifs</span>
+            <span>{{ t('project_detail.objectives_title') }}</span>
           </h2>
           <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
             {{ project.objectives }}
@@ -29,7 +29,7 @@
         <div v-if="project.highlights && project.highlights.length" class="pt-6 border-t border-slate-200/80 dark:border-white/[0.08]">
           <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
             <i class="fa-solid fa-check-double text-emerald-500 text-sm"></i>
-            <span>Ce qui a été fait</span>
+            <span>{{ t('project_detail.what_done_title') }}</span>
           </h2>
           <ul class="space-y-2.5">
             <li
@@ -47,7 +47,7 @@
         <div class="pt-6 border-t border-slate-200/80 dark:border-white/[0.08]">
           <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
             <i class="fa-solid fa-code text-amber-500 text-sm"></i>
-            <span>Technologies utilisées</span>
+            <span>{{ t('project_detail.tech_used_title') }}</span>
           </h2>
           <p class="text-slate-700 dark:text-slate-300 text-sm mb-3">
             {{ project.tech }}
@@ -66,21 +66,21 @@
       <!-- Fiche méta-données -->
       <div class="pro-card space-y-3.5 text-sm">
         <h3 class="font-bold text-slate-900 dark:text-white text-base pb-3 border-b border-slate-200/80 dark:border-white/[0.08]">
-          Fiche récapitulative
+          {{ t('project_detail.summary_card_title') }}
         </h3>
 
         <div class="flex items-start justify-between gap-2">
-          <span class="text-slate-500 text-xs">Catégorie :</span>
+          <span class="text-slate-500 text-xs">{{ t('project_detail.category_label') }}</span>
           <span class="font-semibold text-slate-800 dark:text-slate-200 text-xs text-right">{{ project.category }}</span>
         </div>
 
         <div class="flex items-start justify-between gap-2">
-          <span class="text-slate-500 text-xs">Durée :</span>
+          <span class="text-slate-500 text-xs">{{ t('project_detail.duration_label') }}</span>
           <span class="font-semibold text-slate-800 dark:text-slate-200 text-xs text-right">{{ project.duration }}</span>
         </div>
 
         <div class="flex items-start justify-between gap-2">
-          <span class="text-slate-500 text-xs">Équipe :</span>
+          <span class="text-slate-500 text-xs">{{ t('project_detail.team_label') }}</span>
           <span class="font-semibold text-slate-800 dark:text-slate-200 text-xs text-right">{{ project.team }}</span>
         </div>
 
@@ -93,7 +93,7 @@
             class="btn-primary w-full text-xs"
           >
             <i class="fa-brands fa-github text-sm"></i>
-            <span>Consulter le code sur GitHub</span>
+            <span>{{ t('project_detail.github_btn') }}</span>
           </a>
         </div>
       </div>
@@ -103,9 +103,9 @@
         <div class="flex items-center justify-between">
           <h3 class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
             <i class="fa-regular fa-images text-blue-500"></i>
-            <span>Galerie photos</span>
+            <span>{{ t('project_detail.gallery_title') }}</span>
           </h3>
-          <span class="text-[11px] text-slate-400">Cliquez pour changer</span>
+          <span class="text-[11px] text-slate-400">{{ t('project_detail.gallery_hint') }}</span>
         </div>
 
         <!-- Image active grande taille avec zoom cliquable -->
@@ -122,10 +122,10 @@
             target="_blank"
             rel="noopener noreferrer"
             class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1.5"
-            title="Ouvrir l'image en grand"
+            :title="t('project_detail.fullscreen')"
           >
             <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
-            <span>Plein écran</span>
+            <span>{{ t('project_detail.fullscreen') }}</span>
           </a>
 
           <!-- Badge sur l'image -->
@@ -168,6 +168,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   project: { type: Object, required: true }

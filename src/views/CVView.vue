@@ -5,10 +5,10 @@
       <div class="flex items-center gap-3">
         <RouterLink to="/" class="btn-secondary text-xs py-2 px-3.5">
           <i class="fa-solid fa-arrow-left text-[10px]"></i>
-          <span>Retour au site</span>
+          <span>{{ t('cv_page.back_btn') }}</span>
         </RouterLink>
         <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
-          Format A4 standardisé • Prêt pour candidature & ATS
+          {{ t('cv_page.format_notice') }}
         </span>
       </div>
 
@@ -17,18 +17,18 @@
           type="button"
           @click="printCV"
           class="btn-primary text-xs py-2 px-4 shadow-sm"
-          title="Ouvrir la boîte d'impression du navigateur pour enregistrer en PDF"
+          :title="isEn ? 'Open browser print dialog to save as PDF' : 'Ouvrir la boîte d\'impression du navigateur pour enregistrer en PDF'"
         >
           <i class="fa-solid fa-file-pdf text-xs"></i>
-          <span>Télécharger en PDF</span>
+          <span>{{ t('cv_page.download_pdf') }}</span>
         </button>
         <RouterLink
           to="/lettre"
           class="btn-secondary text-xs py-2 px-3"
-          title="Consulter ma lettre de motivation & synthèse"
+          :title="isEn ? 'Read cover letter' : 'Consulter ma lettre de motivation & synthèse'"
         >
           <i class="fa-regular fa-envelope-open text-xs"></i>
-          <span>Lettre de motivation</span>
+          <span>{{ t('cv_page.cover_letter_btn') }}</span>
         </RouterLink>
       </div>
     </div>
@@ -43,17 +43,17 @@
             Mattéo Rivière
           </h1>
           <p class="text-base sm:text-lg font-bold text-blue-600">
-            Développeur Web & Logiciel
+            {{ t('cv_page.sub_headline') }}
           </p>
           <p class="text-xs sm:text-sm font-semibold text-slate-600">
-            Étudiant en 3e année de BUT Informatique • Recherche de stage web (18 semaines : du 15/02/27 au 07/05/27 & du 28/06/27 au 15/08/27)
+            {{ t('cv_page.status_line') }}
           </p>
 
           <!-- Coordonnées en ligne -->
           <div class="pt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600">
             <div class="flex items-center gap-1.5">
               <i class="fa-solid fa-location-dot text-blue-600 text-[11px]"></i>
-              <span>Aubière / Clermont-Ferrand (63)</span>
+              <span>{{ t('cv_page.location') }}</span>
             </div>
             <div class="flex items-center gap-1.5">
               <i class="fa-solid fa-envelope text-blue-600 text-[11px]"></i>
@@ -84,13 +84,13 @@
             v-if="qrCodeSvg"
             v-html="qrCodeSvg"
             class="qr-code-box w-20 h-20 bg-white border-0 rounded-none shadow-none"
-            title="Scannez ce QR Code pour ouvrir le portfolio en ligne"
+            :title="isEn ? 'Scan this QR Code to open the online portfolio' : 'Scannez ce QR Code pour ouvrir le portfolio en ligne'"
           ></div>
           <span class="text-[10px] font-bold text-slate-600 mt-1 uppercase tracking-wider">
-            Portfolio en ligne
+            {{ t('cv_page.online_portfolio') }}
           </span>
           <span class="text-[9px] text-slate-400">
-            Scannez pour voir mes projets
+            {{ t('cv_page.scan_qr') }}
           </span>
         </div>
       </div>
@@ -98,48 +98,48 @@
       <!-- À PROPOS / PROFIL -->
       <section class="mb-5">
         <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1.5 border-b border-slate-200 pb-1">
-          À propos
+          {{ t('cv_page.sec_about') }}
         </h2>
         <p class="text-xs sm:text-sm text-slate-700 leading-relaxed text-justify">
-          Passionné d'informatique depuis la découverte de Linux et Vim au collège, j'étudie en 3e année de BUT Informatique à l'IUT Clermont Auvergne avec une spécialisation en <strong>développement web</strong>. Autonome, curieux et doté d'une forte capacité d'adaptation, j'ai déjà validé mes compétences en entreprise sur l'automatisation de tests sous Playwright et GitLab CI. Je recherche un <strong>stage de 18 semaines</strong> (du <strong>15/02/2027 au 07/05/2027</strong> et du <strong>28/06/2027 au 15/08/2027</strong>) pour intégrer une équipe technique et concevoir des applications web propres, fiables et utiles.
+          {{ t('cv_page.about_text') }}
         </p>
       </section>
 
       <!-- EXPÉRIENCE PROFESSIONNELLE -->
       <section class="mb-5">
         <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2.5 border-b border-slate-200 pb-1">
-          Expérience Professionnelle
+          {{ t('cv_page.sec_exp') }}
         </h2>
 
         <div>
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
             <div>
               <h3 class="text-sm font-bold text-slate-950">
-                Développeur Tests E2E Automatisés — <span class="text-blue-600 font-semibold">OSPI Cloud</span>
+                {{ t('cv_page.exp_role') }} — <span class="text-blue-600 font-semibold">{{ t('cv_page.exp_company') }}</span>
               </h3>
-              <p class="text-xs text-slate-500">Lyon (Stage de 2e année de BUT — 8 semaines)</p>
+              <p class="text-xs text-slate-500">{{ t('cv_page.exp_place') }}</p>
             </div>
             <span class="text-xs font-semibold text-slate-600 self-start sm:self-center">
-              Juin 2025 — Août 2025
+              {{ t('cv_page.exp_dates') }}
             </span>
           </div>
 
           <ul class="list-disc list-outside ml-4 text-xs text-slate-700 space-y-1 mt-1.5">
             <li>
-              <strong>Automatisation des tests E2E :</strong> Conception et écriture de scripts sous <strong>Playwright</strong> pour valider automatiquement les parcours utilisateurs critiques sur les plateformes web.
+              <strong>{{ t('cv_page.exp_b1_title') }}</strong> {{ t('cv_page.exp_b1_desc') }}
             </li>
             <li>
-              <strong>Intégration Continue (CI/CD) :</strong> Intégration de la suite de tests au pipeline <strong>GitLab CI</strong> avec déclenchement automatique à chaque commit/push.
+              <strong>{{ t('cv_page.exp_b2_title') }}</strong> {{ t('cv_page.exp_b2_desc') }}
             </li>
             <li>
-              <strong>Reporting Qualité :</strong> Mise en place de rapports visuels interactifs via <strong>Allure Reporter</strong> facilitant le suivi et la résolution des bugs par l'équipe.
+              <strong>{{ t('cv_page.exp_b3_title') }}</strong> {{ t('cv_page.exp_b3_desc') }}
             </li>
             <li>
-              <strong>Bénéfice :</strong> Réduction significative des temps de validation manuelle et fiabilisation des livraisons en production.
+              <strong>{{ t('cv_page.exp_b4_title') }}</strong> {{ t('cv_page.exp_b4_desc') }}
             </li>
           </ul>
           <p class="text-[11px] text-slate-500 mt-1 italic">
-            Environnement : Playwright, GitLab CI, Allure, JavaScript, Git.
+            {{ t('cv_page.exp_env') }}
           </p>
         </div>
       </section>
@@ -147,33 +147,33 @@
       <!-- PROJETS TECHNIQUES SIGNIFICATIFS -->
       <section class="mb-5">
         <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2.5 border-b border-slate-200 pb-1">
-          Projets Techniques Clés
+          {{ t('cv_page.sec_proj') }}
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs text-slate-700">
           <div class="py-1">
             <div class="flex items-center justify-between mb-1">
-              <h3 class="font-bold text-slate-950">AéroStat — Guidage GPS temps réel & Météo</h3>
-              <span class="text-[10px] text-slate-500 font-medium">3e année (Équipe de 3)</span>
+              <h3 class="font-bold text-slate-950">{{ t('cv_page.p1_title') }}</h3>
+              <span class="text-[10px] text-slate-500 font-medium">{{ t('cv_page.p1_team') }}</span>
             </div>
             <p class="text-slate-600 leading-relaxed mb-1.5">
-              Plateforme pour pilotes de montgolfière : tracking GPS temps réel (2s), météo AROME hors-ligne et gestion agile sous <strong>YouTrack</strong>.
+              {{ t('cv_page.p1_desc') }}
             </p>
             <p class="text-[10px] text-slate-500">
-              Stack : PostgreSQL, Kubernetes, GitLab CI, YouTrack, Leaflet.
+              {{ t('cv_page.p1_stack') }}
             </p>
           </div>
 
           <div class="py-1">
             <div class="flex items-center justify-between mb-1">
-              <h3 class="font-bold text-slate-950">Sukaijo — Application Logicielle IHM</h3>
-              <span class="text-[10px] text-slate-500 font-medium">Équipe de 3 (3 mois)</span>
+              <h3 class="font-bold text-slate-950">{{ t('cv_page.p2_title') }}</h3>
+              <span class="text-[10px] text-slate-500 font-medium">{{ t('cv_page.p2_team') }}</span>
             </div>
             <p class="text-slate-600 leading-relaxed mb-1.5">
-              Adaptation du jeu Skyjo en application logicielle avec interface XAML moderne et moteur de règles en <strong>C# / .NET MAUI</strong>.
+              {{ t('cv_page.p2_desc') }}
             </p>
             <p class="text-[10px] text-slate-500">
-              Stack : C#, .NET MAUI, XAML, Architecture MVC, Git.
+              {{ t('cv_page.p2_stack') }}
             </p>
           </div>
         </div>
@@ -182,31 +182,31 @@
       <!-- FORMATION ACADÉMIQUE -->
       <section class="mb-5">
         <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 border-b border-slate-200 pb-1">
-          Formation Académique
+          {{ t('cv_page.sec_edu') }}
         </h2>
 
         <div class="space-y-2.5 text-xs">
           <div class="flex items-start justify-between gap-2">
             <div>
               <h3 class="font-bold text-slate-950">
-                BUT Informatique (Bachelor Universitaire de Technologie) — 3e année
+                {{ t('cv_page.edu1_degree') }}
               </h3>
-              <p class="text-slate-600">IUT Clermont Auvergne — Campus d'Aubière (63)</p>
+              <p class="text-slate-600">{{ t('cv_page.edu1_school') }}</p>
               <p class="text-slate-500 text-[11px] mt-0.5">
-                Spécialisation développement web, conception logicielle, bases de données, réseaux & méthodes agiles.
+                {{ t('cv_page.edu1_desc') }}
               </p>
             </div>
-            <span class="font-semibold text-slate-600 shrink-0">2024 — 2027</span>
+            <span class="font-semibold text-slate-600 shrink-0">{{ t('cv_page.edu1_dates') }}</span>
           </div>
 
           <div class="flex items-start justify-between gap-2 pt-1 border-t border-slate-100">
             <div>
               <h3 class="font-bold text-slate-950">
-                Baccalauréat Général (Scientifique) — Mention Assez Bien
+                {{ t('cv_page.edu2_degree') }}
               </h3>
-              <p class="text-slate-600">Lycée René Cassin — Tarare (69)</p>
+              <p class="text-slate-600">{{ t('cv_page.edu2_school') }}</p>
             </div>
-            <span class="font-semibold text-slate-600 shrink-0">2024</span>
+            <span class="font-semibold text-slate-600 shrink-0">{{ t('cv_page.edu2_dates') }}</span>
           </div>
         </div>
       </section>
@@ -215,48 +215,48 @@
       <section class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1.5 border-b border-slate-200 pb-1">
-            Compétences Techniques & Méthodes
+            {{ t('cv_page.sec_skills') }}
           </h2>
           <div class="space-y-1 text-xs text-slate-700">
             <div>
-              <strong class="text-slate-950">Front-end :</strong>
-              <span class="text-slate-600"> Vue.js 3, Angular, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</span>
+              <strong class="text-slate-950">{{ t('cv_page.sk_front_label') }}</strong>
+              <span class="text-slate-600"> {{ t('cv_page.sk_front_val') }}</span>
             </div>
             <div>
-              <strong class="text-slate-950">Back-end & Données :</strong>
-              <span class="text-slate-600"> Symfony, PHP 8, Node.js, API REST, SQL (PostgreSQL), C#</span>
+              <strong class="text-slate-950">{{ t('cv_page.sk_back_label') }}</strong>
+              <span class="text-slate-600"> {{ t('cv_page.sk_back_val') }}</span>
             </div>
             <div>
-              <strong class="text-slate-950">DevOps & Déploiement :</strong>
-              <span class="text-slate-600"> Docker, Git, GitLab CI, Kubernetes, Playwright, Allure, Linux & Vim</span>
+              <strong class="text-slate-950">{{ t('cv_page.sk_ops_label') }}</strong>
+              <span class="text-slate-600"> {{ t('cv_page.sk_ops_val') }}</span>
             </div>
             <div>
-              <strong class="text-slate-950">Gestion & IA :</strong>
-              <span class="text-slate-600"> Méthode MoSCoW, YouTrack, Automatisation IA (outils & scripts)</span>
+              <strong class="text-slate-950">{{ t('cv_page.sk_mgmt_label') }}</strong>
+              <span class="text-slate-600"> {{ t('cv_page.sk_mgmt_val') }}</span>
             </div>
           </div>
         </div>
 
         <div>
           <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1.5 border-b border-slate-200 pb-1">
-            Soft Skills & Centres d'Intérêt
+            {{ t('cv_page.sec_soft') }}
           </h2>
           <div class="space-y-1 text-xs text-slate-700">
             <div>
-              <strong class="text-slate-950">Sport :</strong>
-              <span class="text-slate-600"> Boxe anglaise (6 ans) — Rigueur, sang-froid et persévérance.</span>
+              <strong class="text-slate-950">{{ t('cv_page.soft_sport_label') }}</strong>
+              <span class="text-slate-600"> {{ t('cv_page.soft_sport_val') }}</span>
             </div>
             <div>
-              <strong class="text-slate-950">Musique :</strong>
-              <span class="text-slate-600"> Pop feel-good & Classiques français (Jean-Jacques Goldman).</span>
+              <strong class="text-slate-950">{{ t('cv_page.soft_music_label') }}</strong>
+              <span class="text-slate-600"> {{ t('cv_page.soft_music_val') }}</span>
             </div>
             <div>
-              <strong class="text-slate-950">Atouts :</strong>
-              <span class="text-slate-600"> Anticipation, sens du collectif, curiosité technique et adaptabilité.</span>
+              <strong class="text-slate-950">{{ isEn ? 'Key Strengths:' : 'Atouts :' }}</strong>
+              <span class="text-slate-600"> {{ isEn ? 'Proactive planning, team spirit, engineering curiosity and rapid adaptability.' : 'Anticipation, sens du collectif, curiosité technique et adaptabilité.' }}</span>
             </div>
             <div>
-              <strong class="text-slate-950">Langues :</strong>
-              <span class="text-slate-600"> Français (maternelle), Anglais technique (lu, écrit).</span>
+              <strong class="text-slate-950">{{ t('cv_page.soft_lang_label') }}</strong>
+              <span class="text-slate-600"> {{ t('cv_page.soft_lang_val') }}</span>
             </div>
           </div>
         </div>
@@ -269,9 +269,10 @@
 import { ref, computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import QRCode from 'qrcode'
+import { useI18n } from '../composables/useI18n'
 
+const { t, isEn } = useI18n()
 const qrCodeSvg = ref('')
-
 
 // URL absolue du portfolio pour le QR Code
 const portfolioUrl = computed(() => {

@@ -16,7 +16,7 @@
               Mattéo Rivière
             </span>
             <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
-              Développeur Web
+              {{ isEn ? 'Web Developer' : 'Développeur Web' }}
             </span>
           </div>
         </RouterLink>
@@ -49,7 +49,7 @@
             aria-label="Ouvrir la recherche"
           >
             <i class="fa-solid fa-magnifying-glass text-xs text-slate-400"></i>
-            <span class="hidden lg:inline text-xs">Rechercher</span>
+            <span class="hidden lg:inline text-xs">{{ t('nav.search') }}</span>
             <kbd class="hidden sm:inline-flex items-center text-[10px] font-mono px-1.5 py-0.5 rounded bg-white dark:bg-slate-700/90 border border-slate-200 dark:border-white/[0.1] text-slate-400 dark:text-slate-300">
               Ctrl K
             </kbd>
@@ -64,10 +64,10 @@
                 ? 'bg-blue-600 text-white shadow-sm'
                 : 'text-blue-700 dark:text-blue-300 bg-blue-50 hover:bg-blue-100 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 border border-blue-200 dark:border-blue-500/20'
             ]"
-            title="Consulter mon CV en ligne"
+            :title="isEn ? 'View my Resume' : 'Consulter mon CV en ligne'"
           >
             <i class="fa-regular fa-file-lines text-xs"></i>
-            <span>CV</span>
+            <span>{{ t('nav.cv') }}</span>
           </RouterLink>
 
           <!-- Bouton Langue FR / EN -->
@@ -88,8 +88,8 @@
             type="button"
             @click="onToggleTheme"
             class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all active:scale-90 focus:outline-none"
-            :aria-label="isDark ? 'Passer au mode clair' : 'Passer au mode sombre'"
-            :title="isDark ? 'Passer au mode clair' : 'Passer au mode sombre'"
+            :aria-label="isDark ? t('nav.theme_light') : t('nav.theme_dark')"
+            :title="isDark ? t('nav.theme_light') : t('nav.theme_dark')"
           >
             <i :class="isDark ? 'fa-solid fa-sun text-amber-400' : 'fa-solid fa-moon text-blue-600'"></i>
           </button>
@@ -134,7 +134,7 @@
             class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20"
           >
             <i class="fa-regular fa-file-lines text-xs"></i>
-            <span>Consulter mon CV</span>
+            <span>{{ isEn ? 'View my Resume' : 'Consulter mon CV' }}</span>
           </RouterLink>
         </div>
       </div>

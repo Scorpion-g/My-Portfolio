@@ -5,11 +5,11 @@
       <div class="flex items-center gap-3">
         <RouterLink to="/" class="btn-secondary text-xs py-2 px-3">
           <i class="fa-solid fa-arrow-left text-[11px]"></i>
-          <span>Portfolio</span>
+          <span>{{ t('lettre_page.back_btn') }}</span>
         </RouterLink>
         <RouterLink to="/cv" class="btn-secondary text-xs py-2 px-3">
           <i class="fa-regular fa-file-lines text-[11px]"></i>
-          <span>Mon CV</span>
+          <span>{{ t('lettre_page.cv_btn') }}</span>
         </RouterLink>
       </div>
 
@@ -18,10 +18,10 @@
           type="button"
           @click="printLetter"
           class="btn-primary text-xs py-2 px-4 shadow-sm"
-          title="Ouvrir la boîte d'impression pour enregistrer en PDF (1 page)"
+          :title="isEn ? 'Open print dialog to save as 1-page PDF' : 'Ouvrir la boîte d\'impression pour enregistrer en PDF (1 page)'"
         >
           <i class="fa-solid fa-file-pdf text-xs"></i>
-          <span>Télécharger en PDF</span>
+          <span>{{ t('lettre_page.download_pdf') }}</span>
         </button>
       </div>
     </div>
@@ -35,10 +35,10 @@
             Mattéo Rivière
           </h1>
           <p class="text-sm sm:text-base font-bold text-blue-600">
-            Développeur Web & Logiciel
+            {{ t('lettre_page.candidate_title') }}
           </p>
           <p class="text-xs font-semibold text-slate-600">
-            3e année BUT Informatique • IUT Clermont Auvergne (Aubière)
+            {{ t('lettre_page.candidate_school') }}
           </p>
 
           <div class="pt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600">
@@ -52,7 +52,7 @@
             </span>
             <span class="flex items-center gap-1.5">
               <i class="fa-solid fa-location-dot text-blue-600 text-[11px]"></i>
-              <span>Aubière / Clermont-Ferrand (63)</span>
+              <span>{{ t('cv_page.location') }}</span>
             </span>
             <span class="flex items-center gap-1.5">
               <i class="fa-brands fa-linkedin text-blue-600 text-[11px]"></i>
@@ -67,13 +67,13 @@
             v-if="qrCodeSvg"
             v-html="qrCodeSvg"
             class="qr-code-box w-16 h-16 bg-white border-0 rounded-none shadow-none"
-            title="Scannez ce QR Code pour ouvrir le portfolio interactif"
+            :title="isEn ? 'Scan to open interactive portfolio' : 'Scannez ce QR Code pour ouvrir le portfolio interactif'"
           ></div>
           <span class="text-[9px] font-bold text-slate-700 mt-1 uppercase tracking-wider">
-            Portfolio en ligne
+            {{ t('lettre_page.online_portfolio') }}
           </span>
           <span class="text-[8px] text-slate-500">
-            Scannez pour voir mes projets
+            {{ t('lettre_page.scan_qr') }}
           </span>
         </div>
       </div>
@@ -81,16 +81,16 @@
       <!-- DESTINATAIRE & OBJET -->
       <div class="letter-dest-box mb-4 space-y-2">
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs text-slate-500">
-          <span>À l'attention de l'équipe de recrutement & de la direction technique</span>
-          <span>Clermont-Ferrand, le {{ formattedDate }}</span>
+          <span>{{ t('lettre_page.dest_to') }}</span>
+          <span>{{ t('lettre_page.dest_date_prefix') }} {{ formattedDate }}</span>
         </div>
 
         <div class="letter-object py-1 text-xs">
           <strong class="text-slate-950 font-bold block mb-0.5">
-            Objet : Candidature — Stage de fin d'études en développement web (18 semaines)
+            {{ t('lettre_page.object_title') }}
           </strong>
           <span class="text-slate-700">
-            Périodes officielles : <strong>du 15/02/2027 au 07/05/2027</strong> (12 sem.) et <strong>du 28/06/2027 au 15/08/2027</strong> (6 sem.) • Mobilité : Clermont-Ferrand / Aubière / Lyon / Hybride
+            {{ t('lettre_page.object_dates') }}
           </span>
         </div>
       </div>
@@ -98,67 +98,45 @@
       <!-- CORPS DE LA LETTRE (3 Blocs structurés) -->
       <div class="letter-content space-y-3 text-justify text-slate-700 text-xs sm:text-[12.5px] leading-relaxed">
         <p>
-          Madame, Monsieur,
+          {{ t('lettre_page.salutation') }}
         </p>
 
         <p>
-          Actuellement en 3e année de BUT Informatique à l'IUT Clermont Auvergne, je recherche un stage de fin d'études de 18 semaines pour intégrer votre équipe et mettre mes compétences en développement web et génie logiciel au service de vos projets.
+          {{ t('lettre_page.p1') }}
         </p>
 
         <p>
-          Ma passion pour l'informatique a commencé dès la classe de 3ème avec la découverte de <strong>Linux et de l'éditeur Vim</strong>. Ce qui n'était au départ qu'une curiosité est devenu une véritable exigence : comprendre le fonctionnement des systèmes sous le capot, écrire un code propre et structurer des applications performantes. Aujourd'hui, je maîtrise l'écosystème web moderne avec <strong>Vue.js 3, Angular, Symfony (PHP), Node.js, Tailwind CSS et PostgreSQL</strong>.
+          {{ t('lettre_page.p2') }}
         </p>
 
         <p>
-          Mon parcours académique et mes expériences pratiques m'ont appris à conjuguer autonomie technique et esprit d'équipe :
-        </p>
-
-        <!-- Puces compétences & projets clés -->
-        <ul class="space-y-1 pl-3 list-none">
-          <li class="flex items-start gap-2">
-            <span class="text-blue-600 font-bold mt-0.5">•</span>
-            <span>
-              <strong>Gestion de projet agile & Télémétrie temps réel (AéroStat) :</strong> Au sein d'une équipe de 3 développeurs pour un client réel (pilote de montgolfière), je participe à la conception d'une plateforme d'assistance au vol synchronisant les coordonnées GPS toutes les 2 secondes et intégrant les prévisions météo Météo-France AROME en cache hors-ligne. Nous pilotons le projet selon la méthode MoSCoW avec un découpage strict des jalons sous YouTrack.
-            </span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-600 font-bold mt-0.5">•</span>
-            <span>
-              <strong>Qualité logicielle & Intégration Continue (Stage chez OSPI Cloud — 8 semaines) :</strong> J'ai développé et déployé une infrastructure complète de tests de bout en bout (E2E) avec <strong>Playwright</strong> et <strong>Allure Reporter</strong>, automatisée dans des pipelines <strong>GitLab CI</strong> pour sécuriser les parcours critiques avant mise en production.
-            </span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-600 font-bold mt-0.5">•</span>
-            <span>
-              <strong>Pragmatisme & Accélération par l'IA :</strong> J'utilise l'intelligence artificielle comme démultiplicateur technique pour prototyper rapidement, concevoir des tests exhaustifs et vérifier les cas limites, tout en maintenant un cadre strict et la maîtrise totale de l'architecture logicielle.
-            </span>
-          </li>
-        </ul>
-
-        <p>
-          Sur le plan personnel, mes <strong>6 années de boxe anglaise</strong> m'ont transmis une discipline rigoureuse, l'humilité face aux difficultés et un sang-froid indispensable pour aborder les blocages techniques avec méthode et persévérance. Intégrer votre structure serait pour moi l'opportunité de relever des défis techniques stimulants et de m'investir avec énergie au sein de votre équipe.
+          {{ t('lettre_page.p3') }}
         </p>
 
         <p>
-          Disponible pour débuter dès le <strong>15 février 2027</strong>, je serais ravi d'échanger avec vous lors d'un entretien pour vous exposer ma motivation et étudier comment je pourrai contribuer à vos projets.
+          {{ t('lettre_page.p4') }}
         </p>
 
         <p>
-          Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+          {{ t('lettre_page.p5') }}
+        </p>
+
+        <p>
+          {{ t('lettre_page.closing') }}
         </p>
       </div>
 
       <!-- SIGNATURE & LIENS -->
       <div class="letter-signature mt-4 pt-3 border-t border-slate-200 flex items-end justify-between">
         <div>
-          <span class="text-[11px] text-slate-500 block">Candidat motivé et disponible</span>
+          <span class="text-[11px] text-slate-500 block">{{ isEn ? 'Motivated and available candidate' : 'Candidat motivé et disponible' }}</span>
           <strong class="text-sm font-bold text-slate-900 block">Mattéo Rivière</strong>
-          <span class="text-[10px] text-blue-600">Portfolio complet : matteoriviere.fr</span>
+          <span class="text-[10px] text-blue-600">{{ isEn ? 'Full portfolio: matteoriviere.fr' : 'Portfolio complet : matteoriviere.fr' }}</span>
         </div>
 
         <div class="text-right">
           <span class="text-blue-600 font-bold text-xs tracking-wide">
-            Stage 18 semaines • 2027
+            {{ isEn ? '18-week Internship • 2027' : 'Stage 18 semaines • 2027' }}
           </span>
         </div>
       </div>
@@ -170,7 +148,9 @@
 import { ref, computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import QRCode from 'qrcode'
+import { useI18n } from '../composables/useI18n'
 
+const { t, isEn } = useI18n()
 const qrCodeSvg = ref('')
 
 const portfolioUrl = computed(() => {
@@ -182,7 +162,7 @@ const portfolioUrl = computed(() => {
 
 const formattedDate = computed(() => {
   const now = new Date()
-  return now.toLocaleDateString('fr-FR', {
+  return now.toLocaleDateString(isEn.value ? 'en-US' : 'fr-FR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
@@ -197,7 +177,7 @@ onMounted(async () => {
   try {
     qrCodeSvg.value = await QRCode.toString(portfolioUrl.value, {
       type: 'svg',
-      margin: 1, // Marge nette d'un module blanc pour détacher le QR code proprement
+      margin: 1,
       color: {
         dark: '#0f172a',
         light: '#ffffff'
