@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-6">
+  <div class="space-y-6 print:space-y-0 print:p-0 print:m-0">
     <!-- Barre d'outils (Masquée à l'impression) -->
     <div class="no-print flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-white/80 dark:bg-[#111827]/80 backdrop-blur-md border border-slate-200/80 dark:border-white/[0.08] shadow-sm">
       <div class="flex items-center gap-3">
@@ -22,8 +22,14 @@
           <i class="fa-solid fa-file-pdf text-xs"></i>
           <span>Télécharger en PDF</span>
         </button>
-
-
+        <RouterLink
+          to="/lettre"
+          class="btn-secondary text-xs py-2 px-3"
+          title="Consulter ma lettre de motivation & synthèse"
+        >
+          <i class="fa-regular fa-envelope-open text-xs"></i>
+          <span>Lettre de motivation</span>
+        </RouterLink>
       </div>
     </div>
 
@@ -59,7 +65,7 @@
             </div>
             <div class="flex items-center gap-1.5">
               <i class="fa-brands fa-linkedin text-blue-600 text-[11px]"></i>
-              <a href="https://www.linkedin.com/in/matteo-riviere/" target="_blank" rel="noopener noreferrer" class="hover:underline">in/matteo-riviere</a>
+              <a href="https://www.linkedin.com/in/matteo-rivière-8664b8356" target="_blank" rel="noopener noreferrer" class="hover:underline">in/matteo-rivière-8664b8356</a>
             </div>
             <div class="flex items-center gap-1.5">
               <i class="fa-brands fa-github text-blue-600 text-[11px]"></i>
@@ -73,7 +79,7 @@
           <div
             v-if="qrCodeSvg"
             v-html="qrCodeSvg"
-            class="w-20 h-20 p-1 bg-white border border-slate-300 rounded-lg shadow-xs"
+            class="qr-code-box w-20 h-20 bg-white border-0 rounded-none shadow-none"
             title="Scannez ce QR Code pour ouvrir le portfolio en ligne"
           ></div>
           <span class="text-[10px] font-bold text-slate-600 mt-1 uppercase tracking-wider">
@@ -109,7 +115,7 @@
               </h3>
               <p class="text-xs text-slate-500">Lyon (Stage de 2e année de BUT — 8 semaines)</p>
             </div>
-            <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded self-start sm:self-center">
+            <span class="text-xs font-semibold text-slate-600 self-start sm:self-center">
               Juin 2025 — Août 2025
             </span>
           </div>
@@ -141,7 +147,7 @@
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs text-slate-700">
-          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+          <div class="py-1">
             <div class="flex items-center justify-between mb-1">
               <h3 class="font-bold text-slate-950">AéroStat — Guidage GPS temps réel & Météo</h3>
               <span class="text-[10px] text-slate-500 font-medium">3e année (Équipe de 3)</span>
@@ -154,7 +160,7 @@
             </p>
           </div>
 
-          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+          <div class="py-1">
             <div class="flex items-center justify-between mb-1">
               <h3 class="font-bold text-slate-950">Sukaijo — Application Logicielle IHM</h3>
               <span class="text-[10px] text-slate-500 font-medium">Équipe de 3 (3 mois)</span>
@@ -210,15 +216,15 @@
           <div class="space-y-1 text-xs text-slate-700">
             <div>
               <strong class="text-slate-950">Front-end :</strong>
-              <span class="text-slate-600"> Vue.js 3, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</span>
+              <span class="text-slate-600"> Vue.js 3, Angular, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</span>
             </div>
             <div>
               <strong class="text-slate-950">Back-end & Données :</strong>
-              <span class="text-slate-600"> Node.js, API REST, SQL (PostgreSQL), PHP, Ruby</span>
+              <span class="text-slate-600"> Symfony, PHP 8, Node.js, API REST, SQL (PostgreSQL), C#</span>
             </div>
             <div>
               <strong class="text-slate-950">DevOps & Déploiement :</strong>
-              <span class="text-slate-600"> Git, GitLab CI, Kubernetes, Playwright, Allure, Linux, Docker</span>
+              <span class="text-slate-600"> Docker, Git, GitLab CI, Kubernetes, Playwright, Allure, Linux & Vim</span>
             </div>
             <div>
               <strong class="text-slate-950">Gestion & IA :</strong>
@@ -275,7 +281,7 @@ onMounted(async () => {
   try {
     qrCodeSvg.value = await QRCode.toString(portfolioUrl.value, {
       type: 'svg',
-      margin: 0,
+      margin: 1,
       color: {
         dark: '#0f172a',
         light: '#ffffff'
@@ -292,13 +298,34 @@ const printCV = () => {
 </script>
 
 <style scoped>
+:deep(.qr-code-box svg) {
+  width: 100%;
+  height: 100%;
+  display: block;
+  shape-rendering: crispEdges;
+  image-rendering: pixelated;
+}
+
 @media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 6mm 10mm;
+  }
   .cv-sheet {
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+  .cv-header {
+    padding-bottom: 8px !important;
+    margin-bottom: 8px !important;
+  }
+  section {
+    margin-bottom: 8px !important;
   }
 }
 </style>

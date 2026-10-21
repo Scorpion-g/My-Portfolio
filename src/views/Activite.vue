@@ -96,11 +96,11 @@
 
         <div class="p-6 rounded-2xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-3">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg">
-            <i class="fa-brands fa-vuejs"></i>
+            <i class="fa-solid fa-layer-group"></i>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Veille Web & Frontend</h3>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Veille Web & Frameworks</h3>
           <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-            Je suis de près les évolutions de l'écosystème Vue.js 3, Vite, Tailwind CSS et des outils de bundling modernes. J'aime tester les nouvelles fonctionnalités pour construire des interfaces toujours plus fluides et véloces.
+            Je suis de près les évolutions des frameworks modernes, côté front (Vue.js 3, Angular, Tailwind CSS) comme back (Symfony, Node.js). J'aime expérimenter les nouveautés pour construire des architectures logicielles toujours plus modulaires et robustes.
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col relative overflow-hidden bg-[#F6F7F9] dark:bg-[#0B0F17] text-slate-800 dark:text-slate-100 transition-colors duration-300">
+  <div class="min-h-screen flex flex-col relative overflow-hidden bg-[#F6F7F9] dark:bg-[#0B0F17] text-slate-800 dark:text-slate-100 transition-colors duration-300 print:bg-white print:min-h-0 print:p-0 print:m-0">
     <!-- Fond subtil avec halo lumineux léger en arrière-plan -->
     <div class="fixed inset-0 pointer-events-none z-0">
       <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-500/10 dark:bg-blue-600/10 blur-3xl"></div>
@@ -11,12 +11,12 @@
     <SiteNav :theme="theme" :on-toggle-theme="toggleTheme" class="relative z-10" />
 
     <!-- Contenu principal fluide & large -->
-    <main class="relative z-10 flex-1 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10">
+    <main class="relative z-10 flex-1 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10 print:p-0 print:m-0 print:max-w-none">
       <RouterView />
     </main>
 
     <!-- Footer moderne et épuré -->
-    <footer class="relative z-10 border-t border-slate-200/80 dark:border-white/[0.08] mt-16 py-8 bg-white/70 dark:bg-[#0E1524]/60 backdrop-blur-md">
+    <footer class="no-print relative z-10 border-t border-slate-200/80 dark:border-white/[0.08] mt-16 py-8 bg-white/70 dark:bg-[#0E1524]/60 backdrop-blur-md">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
         <div class="flex items-center gap-2">
           <span>© {{ currentYear }} Mattéo Rivière.</span>
@@ -37,7 +37,7 @@
             <span>GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/matteo-riviere/"
+            href="https://www.linkedin.com/in/matteo-rivière-8664b8356"
             target="_blank"
             rel="noopener noreferrer"
             class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5"

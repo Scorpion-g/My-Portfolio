@@ -47,9 +47,17 @@
       <div class="animate-marquee flex items-center gap-8 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300">
         <span class="flex items-center gap-2"><i class="fa-brands fa-vuejs text-emerald-500 text-base"></i> Vue.js 3</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-angular text-red-500 text-base"></i> Angular</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-symfony text-slate-800 dark:text-white text-base"></i> Symfony</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-php text-indigo-400 text-base"></i> PHP 8</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-brands fa-js text-amber-500 text-base"></i> JavaScript (ES6+)</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-brands fa-css3-alt text-cyan-500 text-base"></i> Tailwind CSS</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-docker text-blue-500 text-base"></i> Docker</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-solid fa-vial-circle-check text-green-500 text-base"></i> Playwright (Tests E2E)</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
@@ -69,9 +77,17 @@
         <!-- Boucle continue -->
         <span class="flex items-center gap-2"><i class="fa-brands fa-vuejs text-emerald-500 text-base"></i> Vue.js 3</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-angular text-red-500 text-base"></i> Angular</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-symfony text-slate-800 dark:text-white text-base"></i> Symfony</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-php text-indigo-400 text-base"></i> PHP 8</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-brands fa-js text-amber-500 text-base"></i> JavaScript (ES6+)</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-brands fa-css3-alt text-cyan-500 text-base"></i> Tailwind CSS</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-docker text-blue-500 text-base"></i> Docker</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-solid fa-vial-circle-check text-green-500 text-base"></i> Playwright (Tests E2E)</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
@@ -129,7 +145,7 @@
           </p>
 
           <p>
-            Aujourd'hui, en fin de cursus à l'IUT Clermont Auvergne, je transpose cette même curiosité dans le développement web moderne. J'aime concevoir des architectures claires avec <strong>Vue.js, JavaScript, Tailwind et PostgreSQL</strong>, tout en m'assurant que chaque brique fonctionne grâce aux tests automatisés avec <strong>Playwright</strong>.
+            Aujourd'hui, en fin de cursus à l'IUT Clermont Auvergne, je transpose cette même curiosité dans le développement web moderne. J'aime concevoir des architectures claires avec <strong>Vue.js, Angular, Symfony (PHP), Node.js, Tailwind et PostgreSQL</strong>, tout en m'assurant que chaque brique fonctionne grâce aux tests automatisés avec <strong>Playwright</strong>.
           </p>
 
           <!-- Citation / Devise de travail -->

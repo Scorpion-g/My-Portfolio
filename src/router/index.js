@@ -6,10 +6,12 @@ import Projets from '../views/Projets.vue'
 import ProjetDetail from '../views/ProjetDetail.vue'
 import Contact from '../views/Contact.vue'
 import CVView from '../views/CVView.vue'
+import LettreView from '../views/LettreView.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/cv', name: 'CV', component: CVView },
+  { path: '/lettre', name: 'Lettre', component: LettreView },
   { path: '/scolarite', name: 'Scolarite', component: Scolarite },
   { path: '/activite', name: 'Activite', component: Activite },
   { path: '/projets', name: 'Projets', component: Projets },
