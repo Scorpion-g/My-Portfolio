@@ -71,7 +71,7 @@
             <span class="text-xs text-slate-500 font-medium">Profils professionnels</span>
             <div class="grid grid-cols-2 gap-2 pt-1">
               <a
-                href="https://www.linkedin.com/in/matteo-riviere/"
+                href="https://www.linkedin.com/in/matteo-rivière-8664b8356"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-slate-50/90 dark:bg-slate-800/60 hover:bg-blue-50 dark:hover:bg-blue-500/10 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 border border-slate-200/80 dark:border-white/[0.08] text-xs font-bold transition-all"

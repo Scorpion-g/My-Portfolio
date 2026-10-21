@@ -37,7 +37,7 @@
             <span>GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/matteo-riviere/"
+            href="https://www.linkedin.com/in/matteo-rivière-8664b8356"
             target="_blank"
             rel="noopener noreferrer"
             class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5"

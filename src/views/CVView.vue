@@ -65,7 +65,7 @@
             </div>
             <div class="flex items-center gap-1.5">
               <i class="fa-brands fa-linkedin text-blue-600 text-[11px]"></i>
-              <a href="https://www.linkedin.com/in/matteo-riviere/" target="_blank" rel="noopener noreferrer" class="hover:underline">in/matteo-riviere</a>
+              <a href="https://www.linkedin.com/in/matteo-rivière-8664b8356" target="_blank" rel="noopener noreferrer" class="hover:underline">in/matteo-rivière-8664b8356</a>
             </div>
             <div class="flex items-center gap-1.5">
               <i class="fa-brands fa-github text-blue-600 text-[11px]"></i>
@@ -79,7 +79,7 @@
           <div
             v-if="qrCodeSvg"
             v-html="qrCodeSvg"
-            class="w-20 h-20 p-1 bg-white border border-slate-300 rounded-lg shadow-xs"
+            class="qr-code-box w-20 h-20 p-1 bg-white border border-slate-900 rounded-none shadow-none"
             title="Scannez ce QR Code pour ouvrir le portfolio en ligne"
           ></div>
           <span class="text-[10px] font-bold text-slate-600 mt-1 uppercase tracking-wider">
@@ -281,7 +281,7 @@ onMounted(async () => {
   try {
     qrCodeSvg.value = await QRCode.toString(portfolioUrl.value, {
       type: 'svg',
-      margin: 0,
+      margin: 1,
       color: {
         dark: '#0f172a',
         light: '#ffffff'
@@ -298,6 +298,14 @@ const printCV = () => {
 </script>
 
 <style scoped>
+:deep(.qr-code-box svg) {
+  width: 100%;
+  height: 100%;
+  display: block;
+  shape-rendering: crispEdges;
+  image-rendering: pixelated;
+}
+
 @media print {
   .cv-sheet {
     box-shadow: none !important;
