@@ -38,10 +38,12 @@
       <!-- EN-TÊTE DU CV (Avec nom visible et QR code pour les recruteurs) -->
       <div class="cv-header border-b-2 border-slate-900 pb-5 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <!-- Nom, Titre & Coordonnées -->
-        <div class="space-y-1">
-          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 uppercase leading-none">
-            Mattéo Rivière
-          </h1>
+        <div class="flex items-start gap-3.5">
+          <img src="/favicon.svg" alt="MR Logo" class="w-12 h-12 rounded-xl shadow-xs border border-slate-200 shrink-0 hidden sm:block" />
+          <div class="space-y-1">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 uppercase leading-none">
+              Mattéo Rivière
+            </h1>
           <p class="text-base sm:text-lg font-bold text-blue-600">
             {{ t('cv_page.sub_headline') }}
           </p>
@@ -77,6 +79,7 @@
             </div>
           </div>
         </div>
+      </div>
 
         <!-- QR CODE VECTORIEL DU PORTFOLIO (Pour les RH) -->
         <div class="shrink-0 flex flex-col items-center sm:items-end text-center sm:text-right pt-2 sm:pt-0">

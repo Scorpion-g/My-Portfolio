@@ -92,6 +92,40 @@
           </div>
         </div>
 
+        <!-- Carte Profil LinkedIn avec Bannière officielle -->
+        <div class="rounded-3xl overflow-hidden bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] shadow-xs group">
+          <div class="relative h-28 sm:h-32 w-full overflow-hidden bg-slate-950">
+            <img
+              src="/linkedin-banner.png"
+              alt="Bannière LinkedIn Mattéo Rivière"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 pt-3 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <img
+                src="/favicon.svg"
+                alt="Logo MR"
+                class="w-10 h-10 rounded-xl border border-slate-200 dark:border-white/10 shrink-0 shadow-sm"
+              />
+              <div class="space-y-0.5">
+                <span class="font-bold text-sm text-slate-900 dark:text-white block leading-tight">Mattéo Rivière</span>
+                <span class="text-xs text-blue-600 dark:text-blue-400 font-medium block">LinkedIn Officiel</span>
+              </div>
+            </div>
+            <a
+              href="https://www.linkedin.com/in/matteo-rivière-8664b8356"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary text-xs py-2 px-3.5 shadow-sm shrink-0 flex items-center gap-1.5"
+            >
+              <i class="fa-brands fa-linkedin text-sm"></i>
+              <span>{{ isEn ? 'View Profile' : 'Voir le profil' }}</span>
+            </a>
+          </div>
+        </div>
+
         <!-- Disponibilité stage -->
         <div class="p-6 rounded-3xl bg-white/80 dark:bg-[#111827]/70 border border-slate-200/80 dark:border-white/[0.08] space-y-4 shadow-xs">
           <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">

@@ -153,6 +153,28 @@
           <div class="pl-4 sm:pl-6 border-l-2 border-blue-500 italic text-slate-600 dark:text-slate-300 text-base sm:text-lg bg-blue-50/40 dark:bg-blue-950/20 py-3 rounded-r-xl">
             {{ t('about.quote') }}
           </div>
+
+          <!-- Bannière officielle d'ingénierie logicielle -->
+          <div class="pt-2">
+            <a
+              href="https://www.linkedin.com/in/matteo-rivière-8664b8356"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block rounded-2xl overflow-hidden border border-slate-200/90 dark:border-white/10 shadow-md group relative bg-slate-950 transition-all hover:shadow-xl hover:border-blue-500/40"
+              title="Consulter mon profil professionnel sur LinkedIn"
+            >
+              <img
+                src="/linkedin-banner.png"
+                alt="Bannière d'ingénierie logicielle Mattéo Rivière"
+                class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-500"
+              />
+              <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-blue-600/90 text-white text-xs font-bold shadow-md backdrop-blur-md flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>{{ isEn ? 'LinkedIn Profile' : 'Profil LinkedIn' }}</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-0.5"></i>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </article>

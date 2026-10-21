@@ -80,23 +80,16 @@ const generateLogoSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
   <path d="M 240 380 L 210 400 L 240 420" stroke="#38BDF8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
   <path d="M 560 380 L 590 400 L 560 420" stroke="#818CF8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
 
-  <!-- Monogram MR Geometric Cyber Path -->
+  <!-- Monogram MR High-Tech Typography (Centré dans l'emblème à 400, 380) -->
   <g filter="url(#glowFilter)">
-    <!-- Letter M -->
-    <path d="M 265 470 L 265 290 L 335 395 L 400 290 L 400 470" 
-          stroke="url(#mrGrad)" 
-          stroke-width="26" 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          fill="none"/>
-
-    <!-- Letter R linked seamlessly -->
-    <path d="M 430 470 L 430 290 L 495 290 C 535 290 545 320 545 350 C 545 385 525 405 490 405 L 430 405 M 480 405 L 540 470" 
-          stroke="url(#mrGrad)" 
-          stroke-width="26" 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          fill="none"/>
+    <text x="400" y="380" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          font-family="Fira Sans, sans-serif" 
+          font-size="220" 
+          font-weight="900" 
+          letter-spacing="-6" 
+          fill="url(#mrGrad)">MR</text>
 
     <!-- Terminal Prompt Dash Underneath -->
     <rect x="370" y="505" width="60" height="10" rx="5" fill="#34D399"/>
@@ -225,10 +218,17 @@ const generateBannerSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
 
   <!-- Name Header with mini MR badge (Aligned visually) -->
   <g transform="translate(360, 96)">
-    <!-- Mini Logo Badge -->
+    <!-- Mini Logo Badge (Centrage parfait du monogramme MR) -->
     <rect x="0" y="2" width="48" height="48" rx="14" fill="#1E293B" stroke="url(#miniLogoGrad)" stroke-width="2"/>
-    <path d="M 13 37 L 13 15 L 21 28 L 29 15 L 29 37" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M 33 37 L 33 15 L 39 15 C 43 15 45 19 45 23 C 45 27 43 29 39 29 L 33 29 M 38 29 L 45 37" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="24" y="26" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          font-family="Fira Sans, sans-serif" 
+          font-size="24" 
+          font-weight="900" 
+          letter-spacing="-0.8">
+      <tspan fill="#60A5FA">M</tspan><tspan fill="#38BDF8">R</tspan>
+    </text>
 
     <!-- Name text with robust font -->
     <text x="64" y="42" 
@@ -442,11 +442,18 @@ const generateOgSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
     <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
-  <!-- Logo Mark Center Left -->
+  <!-- Logo Mark Center Left (Centrage parfait du monogramme MR) -->
   <g transform="translate(100, 95)">
     <rect x="0" y="0" width="105" height="105" rx="30" fill="#1E293B" stroke="url(#ogBorder)" stroke-width="3"/>
-    <path d="M 29 76 L 29 32 L 46 58 L 63 32 L 63 76" stroke="#60A5FA" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M 72 76 L 72 32 L 85 32 C 94 32 97 40 97 47 C 97 54 92 60 84 60 L 72 60 M 83 60 L 97 76" stroke="#38BDF8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="52.5" y="52.5" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          font-family="Fira Sans, sans-serif" 
+          font-size="52" 
+          font-weight="900" 
+          letter-spacing="-1.5">
+      <tspan fill="#60A5FA">M</tspan><tspan fill="#38BDF8">R</tspan>
+    </text>
   </g>
 
   <!-- Tagline Top (width 405, dominant-baseline="central", marges symetriques 18px) -->
@@ -551,10 +558,17 @@ console.log('✓ Created', ogSvgPath)
 // Write Favicon as clean high-contrast SVG
 const faviconSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="16" fill="#0B0F17"/>
-  <rect width="64" height="64" rx="16" stroke="#38BDF8" stroke-width="2"/>
-  <path d="M 14 46 L 14 18 L 25 36 L 36 18 L 36 46" stroke="#60A5FA" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 42 46 L 42 18 L 50 18 C 56 18 58 23 58 27 C 58 32 55 35 49 35 L 42 35 M 48 35 L 58 46" stroke="#38BDF8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect width="64" height="64" rx="18" fill="#0B0F17"/>
+  <rect width="64" height="64" rx="18" stroke="#38BDF8" stroke-width="2.5"/>
+  <text x="32" y="32" 
+        text-anchor="middle" 
+        dominant-baseline="central" 
+        font-family="Fira Sans, sans-serif" 
+        font-size="32" 
+        font-weight="900" 
+        letter-spacing="-1">
+    <tspan fill="#60A5FA">M</tspan><tspan fill="#38BDF8">R</tspan>
+  </text>
 </svg>`
 fs.writeFileSync(faviconPath, faviconSvg)
 console.log('✓ Created', faviconPath)

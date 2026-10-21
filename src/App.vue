@@ -26,7 +26,8 @@
     <!-- Footer moderne et épuré -->
     <footer class="no-print relative z-10 border-t border-slate-200/80 dark:border-white/[0.08] mt-16 py-8 bg-white/70 dark:bg-[#0E1524]/60 backdrop-blur-md">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2.5">
+          <img src="/favicon.svg" alt="MR" class="w-5 h-5 rounded-md opacity-80 hover:opacity-100 transition-opacity" />
           <span>© {{ currentYear }} Mattéo Rivière.</span>
           <span>{{ t('footer.copyright_sub') }}</span>
         </div>

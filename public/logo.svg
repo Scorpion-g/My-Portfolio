@@ -73,23 +73,16 @@
   <path d="M 240 380 L 210 400 L 240 420" stroke="#38BDF8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
   <path d="M 560 380 L 590 400 L 560 420" stroke="#818CF8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
 
-  <!-- Monogram MR Geometric Cyber Path -->
+  <!-- Monogram MR High-Tech Typography (Centré dans l'emblème à 400, 380) -->
   <g filter="url(#glowFilter)">
-    <!-- Letter M -->
-    <path d="M 265 470 L 265 290 L 335 395 L 400 290 L 400 470" 
-          stroke="url(#mrGrad)" 
-          stroke-width="26" 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          fill="none"/>
-
-    <!-- Letter R linked seamlessly -->
-    <path d="M 430 470 L 430 290 L 495 290 C 535 290 545 320 545 350 C 545 385 525 405 490 405 L 430 405 M 480 405 L 540 470" 
-          stroke="url(#mrGrad)" 
-          stroke-width="26" 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          fill="none"/>
+    <text x="400" y="380" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          font-family="Fira Sans, sans-serif" 
+          font-size="220" 
+          font-weight="900" 
+          letter-spacing="-6" 
+          fill="url(#mrGrad)">MR</text>
 
     <!-- Terminal Prompt Dash Underneath -->
     <rect x="370" y="505" width="60" height="10" rx="5" fill="#34D399"/>

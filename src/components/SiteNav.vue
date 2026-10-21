@@ -6,11 +6,11 @@
       <div class="flex items-center justify-between">
         <!-- Logo / Marque -->
         <RouterLink to="/" class="flex items-center gap-3 group focus:outline-none">
-          <div
-            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white font-extrabold flex items-center justify-center text-base tracking-tight shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform"
-          >
-            MR
-          </div>
+          <img
+            src="/favicon.svg"
+            alt="Logo MR"
+            class="w-10 h-10 rounded-xl shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform shrink-0"
+          />
           <div class="flex flex-col">
             <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               Mattéo Rivière

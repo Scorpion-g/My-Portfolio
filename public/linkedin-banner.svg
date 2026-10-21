@@ -98,10 +98,17 @@
 
   <!-- Name Header with mini MR badge (Aligned visually) -->
   <g transform="translate(360, 96)">
-    <!-- Mini Logo Badge -->
+    <!-- Mini Logo Badge (Centrage parfait du monogramme MR) -->
     <rect x="0" y="2" width="48" height="48" rx="14" fill="#1E293B" stroke="url(#miniLogoGrad)" stroke-width="2"/>
-    <path d="M 13 37 L 13 15 L 21 28 L 29 15 L 29 37" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M 33 37 L 33 15 L 39 15 C 43 15 45 19 45 23 C 45 27 43 29 39 29 L 33 29 M 38 29 L 45 37" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="24" y="26" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          font-family="Fira Sans, sans-serif" 
+          font-size="24" 
+          font-weight="900" 
+          letter-spacing="-0.8">
+      <tspan fill="#60A5FA">M</tspan><tspan fill="#38BDF8">R</tspan>
+    </text>
 
     <!-- Name text with robust font -->
     <text x="64" y="42" 
