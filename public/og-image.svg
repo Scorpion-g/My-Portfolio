@@ -58,11 +58,11 @@
     <path d="M 72 76 L 72 32 L 85 32 C 94 32 97 40 97 47 C 97 54 92 60 84 60 L 72 60 M 83 60 L 97 76" stroke="#38BDF8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
 
-  <!-- Tagline Top -->
+  <!-- Tagline Top (width 405, dominant-baseline="central", marges symetriques 18px) -->
   <g transform="translate(235, 130)">
-    <rect x="0" y="0" width="450" height="34" rx="17" fill="#064E3B" fill-opacity="0.5" stroke="#34D399" stroke-width="1.5"/>
-    <circle cx="16" cy="17" r="5" fill="#34D399"/>
-    <text x="30" y="22" font-family="DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" letter-spacing="0.8" fill="#34D399">
+    <rect x="0" y="0" width="405" height="36" rx="18" fill="#064E3B" fill-opacity="0.5" stroke="#34D399" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="4.5" fill="#34D399"/>
+    <text x="32" y="18" dominant-baseline="central" font-family="DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" letter-spacing="0.6" fill="#34D399">
       STAGE WEB (18 SEM.) : FÉV-MAI &amp; JUIN-AOÛT 2027
     </text>
   </g>
@@ -81,47 +81,55 @@
     Applications web modernes, architecture solide et automatisation de tests E2E.
   </text>
 
-  <!-- Tech Badges -->
+  <!-- Tech Badges (Centered text with dominant-baseline) -->
   <g transform="translate(100, 420)">
     <g transform="translate(0, 0)">
-      <rect width="110" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="55" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Vue.js 3</text>
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Vue.js 3</text>
     </g>
-    <g transform="translate(122, 0)">
-      <rect width="110" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="55" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Node.js</text>
+    <g transform="translate(127, 0)">
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Node.js</text>
     </g>
-    <g transform="translate(244, 0)">
-      <rect width="110" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="55" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Symfony</text>
+    <g transform="translate(254, 0)">
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Symfony</text>
     </g>
-    <g transform="translate(366, 0)">
-      <rect width="170" height="38" rx="12" fill="#0369A1" fill-opacity="0.35" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="85" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#38BDF8" text-anchor="middle">Playwright E2E</text>
+    <g transform="translate(381, 0)">
+      <rect width="180" height="38" rx="12" fill="#0369A1" fill-opacity="0.35" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="90" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#38BDF8" text-anchor="middle">Playwright E2E</text>
     </g>
-    <g transform="translate(548, 0)">
-      <rect width="130" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="65" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">PostgreSQL</text>
+    <g transform="translate(573, 0)">
+      <rect width="135" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="67" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">PostgreSQL</text>
     </g>
-    <g transform="translate(690, 0)">
-      <rect width="130" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="65" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">GitLab CI</text>
+    <g transform="translate(720, 0)">
+      <rect width="135" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="67" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">GitLab CI</text>
     </g>
   </g>
 
-  <!-- Footer Link Info -->
-  <g transform="translate(100, 530)">
-    <rect width="1000" height="52" rx="16" fill="#1E293B" fill-opacity="0.6" stroke="#334155" stroke-width="1.2"/>
-    <text x="35" y="32" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="16" font-weight="bold" fill="#FFFFFF">
+  <!-- Footer Link Info Dock Bar -->
+  <g transform="translate(100, 525)">
+    <rect width="1000" height="52" rx="16" fill="#1E293B" fill-opacity="0.75" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="36" cy="26" r="5" fill="#3B82F6"/>
+    <text x="50" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#FFFFFF">
       matteoriviere.fr
     </text>
-    <text x="260" y="32" fill="#64748B">•</text>
-    <text x="290" y="32" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#93C5FD">
+    <text x="215" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="240" cy="26" r="5" fill="#38BDF8"/>
+    <text x="254" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#93C5FD">
       contact@matteoriviere.fr
     </text>
-    <text x="610" y="32" fill="#64748B">•</text>
-    <text x="640" y="32" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#94A3B8">
-      Clermont-Ferrand • Lyon • Hybride
+    <text x="480" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="505" cy="26" r="5" fill="#34D399"/>
+    <text x="519" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#E2E8F0">
+      07 78 13 16 90
+    </text>
+    <text x="655" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="680" cy="26" r="5" fill="#A855F7"/>
+    <text x="694" y="26" dominant-baseline="central" font-family="DejaVu Sans, sans-serif" font-size="14.5" font-weight="bold" fill="#94A3B8">
+      Clermont • Lyon • Hybride
     </text>
   </g>
 </svg>

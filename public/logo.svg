@@ -95,7 +95,7 @@
     <rect x="370" y="505" width="60" height="10" rx="5" fill="#34D399"/>
   </g>
 
-  <!-- Bottom Brand Text (Clean fonts without nested quotes) -->
+  <!-- Bottom Brand Text -->
   <text x="400" y="665" 
         font-family="DejaVu Sans, sans-serif" 
         font-size="28" 

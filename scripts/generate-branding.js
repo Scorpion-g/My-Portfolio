@@ -102,7 +102,7 @@ const generateLogoSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
     <rect x="370" y="505" width="60" height="10" rx="5" fill="#34D399"/>
   </g>
 
-  <!-- Bottom Brand Text (Clean fonts without nested quotes) -->
+  <!-- Bottom Brand Text -->
   <text x="400" y="665" 
         font-family="DejaVu Sans, sans-serif" 
         font-size="28" 
@@ -124,7 +124,7 @@ const generateLogoSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
 </svg>
 `
 
-// 2. LINKEDIN BANNER SVG (1584x396)
+// 2. LINKEDIN BANNER SVG (1584x396) - ALIGNEMENTS MILIMÉTRÉS
 const generateBannerSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="1584" height="396" viewBox="0 0 1584 396" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -201,38 +201,39 @@ const generateBannerSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
     <path d="M 1250 0 L 1450 396" stroke="#38BDF8" stroke-width="1.5"/>
   </g>
 
-  <!-- Left Bottom Avatar Protected Circle (Safe Zone for round profile pic) -->
+  <!-- Left Bottom Avatar Protected Safe Zone -->
   <g opacity="0.12">
     <circle cx="170" cy="300" r="140" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="6 6"/>
     <circle cx="170" cy="300" r="170" stroke="#60A5FA" stroke-width="1"/>
   </g>
 
   <!-- ================= MIDDLE MAIN IDENTITY ================= -->
-  <!-- Availability Badge (Top) -->
+  <!-- Availability Badge (Top) : Largeur calibree a 478px pour un centrage parfait texte et puce -->
   <g transform="translate(360, 42)">
-    <rect x="0" y="0" width="460" height="34" rx="17" fill="#064E3B" fill-opacity="0.45" stroke="url(#badgeBorder)" stroke-width="1.5"/>
-    <circle cx="18" cy="17" r="5" fill="#34D399"/>
-    <text x="32" y="22" 
+    <rect x="0" y="0" width="478" height="34" rx="17" fill="#064E3B" fill-opacity="0.5" stroke="url(#badgeBorder)" stroke-width="1.5"/>
+    <circle cx="18" cy="17" r="4.5" fill="#34D399"/>
+    <text x="32" y="17" 
+          dominant-baseline="central"
           font-family="DejaVu Sans, sans-serif" 
           font-size="11.5" 
           font-weight="bold" 
-          letter-spacing="0.8" 
+          letter-spacing="0.6" 
           fill="#34D399">
       STAGE (18 SEM.) : 15 FÉV - 07 MAI &amp; 28 JUIN - 15 AOÛT 2027
     </text>
   </g>
 
-  <!-- Name Header with mini MR badge -->
-  <g transform="translate(360, 95)">
+  <!-- Name Header with mini MR badge (Aligned visually) -->
+  <g transform="translate(360, 96)">
     <!-- Mini Logo Badge -->
-    <rect x="0" y="6" width="46" height="46" rx="14" fill="#1E293B" stroke="url(#miniLogoGrad)" stroke-width="2"/>
-    <path d="M 12 40 L 12 18 L 20 31 L 28 18 L 28 40" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M 32 40 L 32 18 L 38 18 C 42 18 44 22 44 26 C 44 30 42 32 38 32 L 32 32 M 37 32 L 44 40" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="0" y="2" width="48" height="48" rx="14" fill="#1E293B" stroke="url(#miniLogoGrad)" stroke-width="2"/>
+    <path d="M 13 37 L 13 15 L 21 28 L 29 15 L 29 37" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 33 37 L 33 15 L 39 15 C 43 15 45 19 45 23 C 45 27 43 29 39 29 L 33 29 M 38 29 L 45 37" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 
     <!-- Name text with robust font -->
-    <text x="62" y="47" 
+    <text x="64" y="42" 
           font-family="DejaVu Sans, sans-serif" 
-          font-size="52" 
+          font-size="46" 
           font-weight="bold" 
           letter-spacing="-0.5" 
           fill="url(#titleGrad)">
@@ -241,7 +242,7 @@ const generateBannerSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
   </g>
 
   <!-- Role & Details -->
-  <text x="360" y="190" 
+  <text x="360" y="186" 
         font-family="DejaVu Sans, sans-serif" 
         font-size="21" 
         font-weight="bold" 
@@ -250,90 +251,98 @@ const generateBannerSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
     <tspan fill="#64748B" font-weight="normal"> • 3e année BUT Informatique (Aubière)</tspan>
   </text>
 
-  <!-- Tech Stack Pills Row -->
-  <g transform="translate(360, 224)">
+  <!-- Tech Stack Pills Row (Largeurs calibrees au pixel pres, marges 14px de chaque cote, total 738px laissant 87px de marge avant le terminal) -->
+  <g transform="translate(360, 222)">
+    <!-- Pill 1: Vue.js (width: 81) -->
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="85" height="32" rx="10" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
-      <circle cx="16" cy="16" r="4" fill="#10B981"/>
-      <text x="28" y="21" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Vue.js</text>
+      <rect x="0" y="0" width="81" height="34" rx="11" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
+      <circle cx="14" cy="17" r="4" fill="#10B981"/>
+      <text x="24" y="17" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Vue.js</text>
     </g>
 
-    <g transform="translate(95, 0)">
-      <rect x="0" y="0" width="88" height="32" rx="10" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
-      <circle cx="16" cy="16" r="4" fill="#059669"/>
-      <text x="28" y="21" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Node.js</text>
+    <!-- Pill 2: Node.js (width: 87) -->
+    <g transform="translate(91, 0)">
+      <rect x="0" y="0" width="87" height="34" rx="11" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
+      <circle cx="14" cy="17" r="4" fill="#059669"/>
+      <text x="24" y="17" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Node.js</text>
     </g>
 
-    <g transform="translate(193, 0)">
-      <rect x="0" y="0" width="90" height="32" rx="10" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
-      <circle cx="16" cy="16" r="4" fill="#F8FAFC"/>
-      <text x="28" y="21" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Symfony</text>
+    <!-- Pill 3: Symfony (width: 88) -->
+    <g transform="translate(188, 0)">
+      <rect x="0" y="0" width="88" height="34" rx="11" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
+      <circle cx="14" cy="17" r="4" fill="#F8FAFC"/>
+      <text x="24" y="17" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Symfony</text>
     </g>
 
-    <g transform="translate(293, 0)">
-      <rect x="0" y="0" width="138" height="32" rx="10" fill="#0369A1" fill-opacity="0.4" stroke="#38BDF8" stroke-width="1.5"/>
-      <circle cx="16" cy="16" r="4" fill="#38BDF8"/>
-      <text x="28" y="21" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#38BDF8">Playwright E2E</text>
+    <!-- Pill 4: Playwright E2E (width: 138) -->
+    <g transform="translate(286, 0)">
+      <rect x="0" y="0" width="138" height="34" rx="11" fill="#0369A1" fill-opacity="0.4" stroke="#38BDF8" stroke-width="1.5"/>
+      <circle cx="14" cy="17" r="4" fill="#38BDF8"/>
+      <text x="24" y="17" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#38BDF8">Playwright E2E</text>
     </g>
 
-    <g transform="translate(441, 0)">
-      <rect x="0" y="0" width="112" height="32" rx="10" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
-      <circle cx="16" cy="16" r="4" fill="#60A5FA"/>
-      <text x="28" y="21" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">PostgreSQL</text>
+    <!-- Pill 5: PostgreSQL (width: 109) -->
+    <g transform="translate(434, 0)">
+      <rect x="0" y="0" width="109" height="34" rx="11" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
+      <circle cx="14" cy="17" r="4" fill="#60A5FA"/>
+      <text x="24" y="17" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">PostgreSQL</text>
     </g>
 
-    <g transform="translate(563, 0)">
-      <rect x="0" y="0" width="105" height="32" rx="10" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
-      <circle cx="16" cy="16" r="4" fill="#F97316"/>
-      <text x="28" y="21" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">GitLab CI</text>
+    <!-- Pill 6: GitLab CI (width: 102) -->
+    <g transform="translate(553, 0)">
+      <rect x="0" y="0" width="102" height="34" rx="11" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
+      <circle cx="14" cy="17" r="4" fill="#F97316"/>
+      <text x="24" y="17" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">GitLab CI</text>
     </g>
 
-    <g transform="translate(678, 0)">
-      <rect x="0" y="0" width="80" height="32" rx="10" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
-      <circle cx="16" cy="16" r="4" fill="#FBBF24"/>
-      <text x="28" y="21" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Linux</text>
+    <!-- Pill 7: Linux (width: 73) -->
+    <g transform="translate(665, 0)">
+      <rect x="0" y="0" width="73" height="34" rx="11" fill="#1E293B" fill-opacity="0.85" stroke="#334155" stroke-width="1.2"/>
+      <circle cx="14" cy="17" r="4" fill="#FBBF24"/>
+      <text x="24" y="17" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12" font-weight="bold" fill="#E2E8F0">Linux</text>
     </g>
   </g>
 
-  <!-- Contact & Web Links Bar (Bottom) -->
-  <g transform="translate(360, 312)">
-    <g transform="translate(0, 0)">
-      <circle cx="8" cy="8" r="7" fill="#2563EB" fill-opacity="0.4"/>
-      <text x="22" y="12" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#FFFFFF">matteoriviere.fr</text>
-    </g>
+  <!-- Contact & Web Links Bar (Barre Dock en verre avec espacement rigoureusement equilibre) -->
+  <g transform="translate(360, 305)">
+    <rect x="0" y="0" width="792" height="40" rx="14" fill="#111C30" fill-opacity="0.75" stroke="#1E293B" stroke-width="1.5"/>
 
-    <text x="175" y="12" fill="#475569">•</text>
+    <!-- Website -->
+    <circle cx="20" cy="20" r="4.5" fill="#3B82F6"/>
+    <text x="32" y="20" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12.5" font-weight="bold" fill="#FFFFFF">matteoriviere.fr</text>
 
-    <g transform="translate(195, 0)">
-      <circle cx="8" cy="8" r="7" fill="#0EA5E9" fill-opacity="0.4"/>
-      <text x="22" y="12" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#93C5FD">contact@matteoriviere.fr</text>
-    </g>
+    <!-- Separator 1 -->
+    <text x="170" y="20" dominant-baseline="central" fill="#475569" font-size="14">•</text>
 
-    <text x="430" y="12" fill="#475569">•</text>
+    <!-- Email -->
+    <circle cx="194" cy="20" r="4.5" fill="#38BDF8"/>
+    <text x="206" y="20" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12.5" font-weight="bold" fill="#93C5FD">contact@matteoriviere.fr</text>
 
-    <g transform="translate(450, 0)">
-      <circle cx="8" cy="8" r="7" fill="#34D399" fill-opacity="0.4"/>
-      <text x="22" y="12" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#E2E8F0">07 78 13 16 90</text>
-    </g>
+    <!-- Separator 2 -->
+    <text x="404" y="20" dominant-baseline="central" fill="#475569" font-size="14">•</text>
 
-    <text x="590" y="12" fill="#475569">•</text>
+    <!-- Phone -->
+    <circle cx="428" cy="20" r="4.5" fill="#34D399"/>
+    <text x="440" y="20" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12.5" font-weight="bold" fill="#E2E8F0">07 78 13 16 90</text>
 
-    <g transform="translate(610, 0)">
-      <circle cx="8" cy="8" r="7" fill="#A855F7" fill-opacity="0.4"/>
-      <text x="22" y="12" font-family="DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#94A3B8">Clermont • Lyon • Hybride</text>
-    </g>
+    <!-- Separator 3 -->
+    <text x="562" y="20" dominant-baseline="central" fill="#475569" font-size="14">•</text>
+
+    <!-- Location -->
+    <circle cx="586" cy="20" r="4.5" fill="#A855F7"/>
+    <text x="598" y="20" dominant-baseline="central" font-family="DejaVu Sans, sans-serif" font-size="12" font-weight="bold" fill="#94A3B8">Clermont • Lyon • Hybride</text>
   </g>
 
   <!-- ================= RIGHT SIDE: CODE TERMINAL CARD ================= -->
-  <g transform="translate(1180, 42)">
-    <rect x="0" y="0" width="360" height="312" rx="16" fill="#0B1220" fill-opacity="0.9" stroke="url(#cardBorder)" stroke-width="1.5"/>
+  <g transform="translate(1185, 42)">
+    <rect x="0" y="0" width="355" height="312" rx="16" fill="#0B1220" fill-opacity="0.92" stroke="url(#cardBorder)" stroke-width="1.5"/>
 
-    <!-- Terminal Header -->
-    <path d="M 0 16 C 0 7 7 0 16 0 L 344 0 C 353 0 360 7 360 16 L 360 36 L 0 36 Z" fill="#0F172A"/>
+    <!-- Terminal Header (Centrage parfait du titre avec dominant-baseline="central") -->
+    <path d="M 0 16 C 0 7 7 0 16 0 L 339 0 C 348 0 355 7 355 16 L 355 36 L 0 36 Z" fill="#0F172A"/>
     <circle cx="20" cy="18" r="5" fill="#EF4444"/>
     <circle cx="36" cy="18" r="5" fill="#F59E0B"/>
     <circle cx="52" cy="18" r="5" fill="#10B981"/>
-    <text x="180" y="23" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="11" font-weight="bold" fill="#64748B" text-anchor="middle">engineer.config.ts</text>
+    <text x="177" y="18" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="11" font-weight="bold" fill="#64748B" text-anchor="middle">engineer.config.ts</text>
 
     <!-- Terminal Code Body -->
     <g transform="translate(20, 56)" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="11.5">
@@ -440,11 +449,11 @@ const generateOgSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
     <path d="M 72 76 L 72 32 L 85 32 C 94 32 97 40 97 47 C 97 54 92 60 84 60 L 72 60 M 83 60 L 97 76" stroke="#38BDF8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
 
-  <!-- Tagline Top -->
+  <!-- Tagline Top (width 405, dominant-baseline="central", marges symetriques 18px) -->
   <g transform="translate(235, 130)">
-    <rect x="0" y="0" width="450" height="34" rx="17" fill="#064E3B" fill-opacity="0.5" stroke="#34D399" stroke-width="1.5"/>
-    <circle cx="16" cy="17" r="5" fill="#34D399"/>
-    <text x="30" y="22" font-family="DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" letter-spacing="0.8" fill="#34D399">
+    <rect x="0" y="0" width="405" height="36" rx="18" fill="#064E3B" fill-opacity="0.5" stroke="#34D399" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="4.5" fill="#34D399"/>
+    <text x="32" y="18" dominant-baseline="central" font-family="DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" letter-spacing="0.6" fill="#34D399">
       STAGE WEB (18 SEM.) : FÉV-MAI &amp; JUIN-AOÛT 2027
     </text>
   </g>
@@ -463,47 +472,55 @@ const generateOgSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
     Applications web modernes, architecture solide et automatisation de tests E2E.
   </text>
 
-  <!-- Tech Badges -->
+  <!-- Tech Badges (Centered text with dominant-baseline) -->
   <g transform="translate(100, 420)">
     <g transform="translate(0, 0)">
-      <rect width="110" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="55" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Vue.js 3</text>
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Vue.js 3</text>
     </g>
-    <g transform="translate(122, 0)">
-      <rect width="110" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="55" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Node.js</text>
+    <g transform="translate(127, 0)">
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Node.js</text>
     </g>
-    <g transform="translate(244, 0)">
-      <rect width="110" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="55" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Symfony</text>
+    <g transform="translate(254, 0)">
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Symfony</text>
     </g>
-    <g transform="translate(366, 0)">
-      <rect width="170" height="38" rx="12" fill="#0369A1" fill-opacity="0.35" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="85" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#38BDF8" text-anchor="middle">Playwright E2E</text>
+    <g transform="translate(381, 0)">
+      <rect width="180" height="38" rx="12" fill="#0369A1" fill-opacity="0.35" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="90" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#38BDF8" text-anchor="middle">Playwright E2E</text>
     </g>
-    <g transform="translate(548, 0)">
-      <rect width="130" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="65" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">PostgreSQL</text>
+    <g transform="translate(573, 0)">
+      <rect width="135" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="67" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">PostgreSQL</text>
     </g>
-    <g transform="translate(690, 0)">
-      <rect width="130" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
-      <text x="65" y="24" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="14" font-weight="bold" fill="#E2E8F0" text-anchor="middle">GitLab CI</text>
+    <g transform="translate(720, 0)">
+      <rect width="135" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="67" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">GitLab CI</text>
     </g>
   </g>
 
-  <!-- Footer Link Info -->
-  <g transform="translate(100, 530)">
-    <rect width="1000" height="52" rx="16" fill="#1E293B" fill-opacity="0.6" stroke="#334155" stroke-width="1.2"/>
-    <text x="35" y="32" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="16" font-weight="bold" fill="#FFFFFF">
+  <!-- Footer Link Info Dock Bar -->
+  <g transform="translate(100, 525)">
+    <rect width="1000" height="52" rx="16" fill="#1E293B" fill-opacity="0.75" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="36" cy="26" r="5" fill="#3B82F6"/>
+    <text x="50" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#FFFFFF">
       matteoriviere.fr
     </text>
-    <text x="260" y="32" fill="#64748B">•</text>
-    <text x="290" y="32" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#93C5FD">
+    <text x="215" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="240" cy="26" r="5" fill="#38BDF8"/>
+    <text x="254" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#93C5FD">
       contact@matteoriviere.fr
     </text>
-    <text x="610" y="32" fill="#64748B">•</text>
-    <text x="640" y="32" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#94A3B8">
-      Clermont-Ferrand • Lyon • Hybride
+    <text x="480" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="505" cy="26" r="5" fill="#34D399"/>
+    <text x="519" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#E2E8F0">
+      07 78 13 16 90
+    </text>
+    <text x="655" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="680" cy="26" r="5" fill="#A855F7"/>
+    <text x="694" y="26" dominant-baseline="central" font-family="DejaVu Sans, sans-serif" font-size="14.5" font-weight="bold" fill="#94A3B8">
+      Clermont • Lyon • Hybride
     </text>
   </g>
 </svg>
@@ -554,4 +571,4 @@ console.log('✓ Rendered', bannerPngPath, '(1584x396 px)')
 execSync(`rsvg-convert -w 1200 -h 630 "${ogSvgPath}" -o "${ogJpgPath}"`)
 console.log('✓ Rendered', ogJpgPath, '(1200x630 px)')
 
-console.log('All branding assets generated successfully!')
+console.log('All branding assets re-generated with perfect alignment!')
