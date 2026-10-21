@@ -22,8 +22,14 @@
           <i class="fa-solid fa-file-pdf text-xs"></i>
           <span>Télécharger en PDF</span>
         </button>
-
-
+        <RouterLink
+          to="/lettre"
+          class="btn-secondary text-xs py-2 px-3"
+          title="Consulter ma lettre de motivation & synthèse"
+        >
+          <i class="fa-regular fa-envelope-open text-xs"></i>
+          <span>Lettre de motivation</span>
+        </RouterLink>
       </div>
     </div>
 
