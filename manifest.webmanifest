@@ -1,0 +1,19 @@
+{
+  "name": "Mattéo Rivière | Développeur Web & Logiciel",
+  "short_name": "Mattéo R.",
+  "description": "Portfolio, CV interactif et lettre de motivation de Mattéo Rivière, étudiant en BUT Informatique.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0F17",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

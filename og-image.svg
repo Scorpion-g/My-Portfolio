@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C14"/>
+      <stop offset="50%" stop-color="#0B1120"/>
+      <stop offset="100%" stop-color="#04060B"/>
+    </linearGradient>
+
+    <radialGradient id="ogGlow1" cx="30%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#06B6D4" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="ogGlow2" cx="80%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ogTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+
+    <linearGradient id="ogBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <rect width="1200" height="630" fill="url(#ogGlow1)"/>
+  <rect width="1200" height="630" fill="url(#ogGlow2)"/>
+  <rect width="1200" height="630" stroke="url(#ogBorder)" stroke-width="4" stroke-opacity="0.4"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.08" stroke="#38BDF8" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Logo Mark Center Left (Centrage parfait du monogramme MR) -->
+  <g transform="translate(100, 95)">
+    <rect x="0" y="0" width="105" height="105" rx="30" fill="#1E293B" stroke="url(#ogBorder)" stroke-width="3"/>
+    <text x="52.5" y="52.5" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          font-family="Fira Sans, sans-serif" 
+          font-size="52" 
+          font-weight="900" 
+          letter-spacing="-1.5">
+      <tspan fill="#60A5FA">M</tspan><tspan fill="#38BDF8">R</tspan>
+    </text>
+  </g>
+
+  <!-- Tagline Top (width 405, dominant-baseline="central", marges symetriques 18px) -->
+  <g transform="translate(235, 130)">
+    <rect x="0" y="0" width="405" height="36" rx="18" fill="#064E3B" fill-opacity="0.5" stroke="#34D399" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="4.5" fill="#34D399"/>
+    <text x="32" y="18" dominant-baseline="central" font-family="DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" letter-spacing="0.6" fill="#34D399">
+      STAGE WEB (18 SEM.) : FÉV-MAI &amp; JUIN-AOÛT 2027
+    </text>
+  </g>
+
+  <!-- Main Headline -->
+  <text x="100" y="275" font-family="DejaVu Sans, sans-serif" font-size="62" font-weight="bold" letter-spacing="-1" fill="url(#ogTitleGrad)">
+    Mattéo Rivière
+  </text>
+
+  <text x="100" y="325" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="bold" fill="#38BDF8">
+    Développeur Web &amp; Logiciel
+    <tspan fill="#64748B" font-weight="normal"> • 3e année BUT Informatique</tspan>
+  </text>
+
+  <text x="100" y="380" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="normal" fill="#94A3B8">
+    Applications web modernes, architecture solide et automatisation de tests E2E.
+  </text>
+
+  <!-- Tech Badges (Centered text with dominant-baseline) -->
+  <g transform="translate(100, 420)">
+    <g transform="translate(0, 0)">
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Vue.js 3</text>
+    </g>
+    <g transform="translate(127, 0)">
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Node.js</text>
+    </g>
+    <g transform="translate(254, 0)">
+      <rect width="115" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="57" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">Symfony</text>
+    </g>
+    <g transform="translate(381, 0)">
+      <rect width="180" height="38" rx="12" fill="#0369A1" fill-opacity="0.35" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="90" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#38BDF8" text-anchor="middle">Playwright E2E</text>
+    </g>
+    <g transform="translate(573, 0)">
+      <rect width="135" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="67" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">PostgreSQL</text>
+    </g>
+    <g transform="translate(720, 0)">
+      <rect width="135" height="38" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+      <text x="67" y="19" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="13.5" font-weight="bold" fill="#E2E8F0" text-anchor="middle">GitLab CI</text>
+    </g>
+  </g>
+
+  <!-- Footer Link Info Dock Bar -->
+  <g transform="translate(100, 525)">
+    <rect width="1000" height="52" rx="16" fill="#1E293B" fill-opacity="0.75" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="36" cy="26" r="5" fill="#3B82F6"/>
+    <text x="50" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#FFFFFF">
+      matteoriviere.fr
+    </text>
+    <text x="215" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="240" cy="26" r="5" fill="#38BDF8"/>
+    <text x="254" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#93C5FD">
+      contact@matteoriviere.fr
+    </text>
+    <text x="480" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="505" cy="26" r="5" fill="#34D399"/>
+    <text x="519" y="26" dominant-baseline="central" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#E2E8F0">
+      07 78 13 16 90
+    </text>
+    <text x="655" y="26" dominant-baseline="central" fill="#64748B">•</text>
+    <circle cx="680" cy="26" r="5" fill="#A855F7"/>
+    <text x="694" y="26" dominant-baseline="central" font-family="DejaVu Sans, sans-serif" font-size="14.5" font-weight="bold" fill="#94A3B8">
+      Clermont • Lyon • Hybride
+    </text>
+  </g>
+</svg>
