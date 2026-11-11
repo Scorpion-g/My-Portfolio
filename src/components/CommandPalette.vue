@@ -211,7 +211,7 @@ const rawGroups = computed(() => [
       { id: 'p-aerostat', label: 'AéroStat', subtitle: isEn.value ? 'Real-time GPS tracking & AROME weather' : 'Guidage GPS temps réel (2s) & météo AROME', icon: 'fa-solid fa-location-arrow', action: () => router.push('/projets/aerostat') },
       { id: 'p-playwright', label: 'OSPI Cloud Tests E2E', subtitle: isEn.value ? 'Playwright automated tests & GitLab CI' : 'Tests automatisés Playwright & GitLab CI', icon: 'fa-solid fa-vial-circle-check', action: () => router.push('/projets/ospi-cloud-e2e') },
       { id: 'p-sukaijo', label: 'Sukaijo', subtitle: isEn.value ? 'Skyjo desktop card game in C# / .NET MAUI' : 'Jeu Skyjo en C# / .NET MAUI et XAML', icon: 'fa-solid fa-gamepad', action: () => router.push('/projets/sukaijo') },
-      { id: 'p-sparcky', label: 'Sparcky', subtitle: isEn.value ? 'Multifunction Discord Bot & Node.js' : 'Bot Discord multifonctions & Node.js', icon: 'fa-brands fa-discord', action: () => router.push('/projets/sparcky') }
+      { id: 'p-sparcky', label: 'Sparcky', subtitle: isEn.value ? 'Full-Stack Discord Bot & Web Dashboard SaaS' : 'Écosystème SaaS Full-Stack : Bot Discord & Dashboard Web', icon: 'fa-brands fa-discord', action: () => router.push('/projets/sparcky') }
     ]
   },
   {

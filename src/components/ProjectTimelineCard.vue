@@ -50,18 +50,29 @@
           </div>
 
           <!-- Actions -->
-          <div class="pt-4 border-t border-slate-200/60 dark:border-white/[0.08] flex items-center gap-3">
+          <div class="pt-4 border-t border-slate-200/60 dark:border-white/[0.08] flex flex-wrap items-center gap-3">
             <RouterLink :to="`/projets/${project.id}`" class="btn-primary text-xs py-2 px-4">
               <span>{{ t('timeline_card.case_study_btn') }}</span>
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </RouterLink>
 
             <a
+              v-if="project.links?.live"
+              :href="project.links.live"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary text-xs py-2 px-4 inline-flex items-center gap-1.5"
+            >
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              <span>{{ isEn ? 'Live App' : 'Site en ligne' }}</span>
+            </a>
+
+            <a
               v-if="project.links?.github"
               :href="project.links.github"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-secondary text-xs py-2 px-4"
+              class="btn-secondary text-xs py-2 px-4 inline-flex items-center gap-1.5"
             >
               <i class="fa-brands fa-github text-sm"></i>
               <span>GitHub</span>
@@ -77,7 +88,7 @@
 import { RouterLink } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 
-const { t } = useI18n()
+const { t, isEn } = useI18n()
 
 defineProps({
   project: { type: Object, required: true },

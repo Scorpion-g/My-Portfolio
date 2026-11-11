@@ -7,10 +7,72 @@ import sparcky3 from '../assets/sparcky_3.webp'
 import sparcky_god_pres from '../assets/sparcky_god_presentation.png'
 import sparcky_god_gallery1 from '../assets/sparcky_god_gallery_1.png'
 import sparcky_god_gallery2 from '../assets/sparcky_god_gallery_2.png'
+import sparckyFullstackCover from '../assets/sparcky_fullstack_mockup.jpg'
 import ospiCloudCover from '../assets/ospi_playwright_mockup.jpg'
 import aerostatCover from '../assets/aerostat_mockup.jpg'
 
 export const projects = [
+  {
+    id: 'sparcky',
+    title: 'Sparcky — Écosystème SaaS Full-Stack : Bot Discord & Dashboard Web',
+    shortTitle: 'Sparcky (SaaS Full-Stack)',
+    featured: true,
+    category: 'Full-Stack & Cloud',
+    summary:
+      "Conception, développement et déploiement en production d'un écosystème SaaS complet pour serveurs Discord : Bot Discord v14 haute performance, API REST Express/Node.js sécurisée par JWT, Dashboard d'administration React 18 / Vite / Tailwind multilingue, et base de données MongoDB, le tout conteneurisé sous Docker sur VPS Linux.",
+    objectives:
+      "Offrir aux administrateurs de communautés Discord une plateforme clé en main pour animer et gérer leurs serveurs : 28 commandes slash, modération automatisée avec auto-sanctions, économie virtuelle complète (casino, boutique, transferts), progression de niveaux XP avec cartes générées dynamiquement via Canvas, système de tickets de support avec export de transcripts, et tirages au sort (Giveaways) avec distribution automatique des gains en base de données (pièces, rôles, XP).",
+    tech: 'React 18, Vite, Tailwind CSS, Node.js, Express.js, Discord.js v14, MongoDB / Mongoose, Docker Compose, Nginx SSL, REST API, JWT, i18n, Canvacord',
+    team: 'Projet personnel d\'envergure (Conception, développement full-stack, DevOps & hébergement VPS solo).',
+    duration: 'Projet majeur en production continue (2025 - 2026).',
+    cardText:
+      'Architecture monorepo complète : Bot Discord v14 (28 commandes slash), Dashboard React multilingue temps réel, API REST Express, base MongoDB et conteneurisation Docker sur VPS Linux.',
+    tags: ['Full-Stack', 'React 18', 'Node.js', 'Discord.js v14', 'MongoDB', 'Docker', 'Vite', 'Tailwind CSS', 'API REST', 'VPS Linux'],
+    cover: {
+      src: sparckyFullstackCover,
+      alt: 'Écosystème Sparcky - Dashboard Web & Bot Discord',
+      badge: 'Full-Stack & Docker',
+      caption: 'Dashboard d\'administration React et Bot Discord v14 déployés sous Docker sur VPS'
+    },
+    gallery: [
+      {
+        src: sparckyFullstackCover,
+        alt: 'Vue d\'ensemble de l\'écosystème Sparcky',
+        badge: 'Architecture Globale',
+        caption: 'Dashboard Web React & Bot Discord haute performance connectés à l\'API REST'
+      },
+      {
+        src: sparcky_god_pres,
+        alt: 'Commandes interactives et profil du bot Discord',
+        badge: 'Bot Discord v14',
+        caption: '28 commandes slash avec composants interactifs (boutons, sélecteurs, modales)'
+      },
+      {
+        src: sparcky_god_gallery1,
+        alt: 'Module de modération et gestion des serveurs',
+        badge: 'Modération & Rôles',
+        caption: 'Auto-sanctions paramétrables (warn, mute, kick, ban) et logs d\'audit sécurisés'
+      },
+      {
+        src: sparcky_god_gallery2,
+        alt: 'Système d\'économie, niveaux XP et Giveaways',
+        badge: 'Économie & Giveaways',
+        caption: 'Économie intégrée, progression XP et giveaways avec attribution automatique des gains'
+      }
+    ],
+    links: {
+      github: 'https://github.com/Scorpion-g/Sparcky',
+      live: 'https://sparcky.matteoriviere.fr'
+    },
+    highlights: [
+      'Architecture Monorepo robuste avec package de base de données partagé (@sparcky/database)',
+      'Dashboard React 18 multilingue (FR / EN / ES) avec OAuth2 Discord et contrôle en temps réel des serveurs',
+      'API REST sécurisée par JWT avec rate-limiting, validations strictes et intégration Discord REST API',
+      'Bot Discord v14 riche : 28 commandes slash, blindtest musical vocal, boutique virtuelle et tickets support',
+      'Système de Giveaways automatisé avec distribution instantanée des récompenses (crédit pièces, points d\'XP, rôles)',
+      'Déploiement en production sur VPS Linux avec Docker Compose et reverse-proxy Nginx avec chiffrement SSL'
+    ]
+  },
   {
     id: 'aerostat',
     title: 'AéroStat — Guidage GPS temps réel & Météo pour montgolfières',
@@ -127,54 +189,9 @@ export const projects = [
     ]
   },
   {
-    id: 'sparcky-god',
-    title: 'Sparcky God - Bot Discord avancé d\'administration & utilitaires',
-    shortTitle: 'Sparcky God',
-    featured: true,
-    category: 'Automatisation & Backend',
-    summary:
-      "Bot Discord modulaire et performant avec gestion d'événements asynchrones, modération automatisée et utilitaires communautaires.",
-    objectives:
-      "Développer une architecture robuste basée sur l'API Discord, avec gestion des rôles, logs automatisés, filtres anti-spam et commandes personnalisées.",
-    tech: 'JavaScript, Node.js, Discord.js, REST API',
-    team: 'Projet personnel (conception & développement solo).',
-    duration: 'Développement évolutif.',
-    cardText:
-      'Bot Discord orienté gestion, modération avancée et commandes utilitaires propulsé par Node.js et l\'API Discord.',
-    tags: ['JavaScript', 'Node.js', 'Discord.js', 'API REST', 'Async'],
-    cover: {
-      src: sparcky_god_pres,
-      alt: 'Aperçu du bot Discord Sparcky God',
-      badge: 'Discord.js',
-      caption: 'Profil et commandes interactives de Sparcky God'
-    },
-    gallery: [
-      {
-        src: sparcky_god_gallery1,
-        alt: 'Gestion avancée des permissions et rôles',
-        badge: 'Rôles & Sécurité',
-        caption: 'Module de configuration des permissions serveur'
-      },
-      {
-        src: sparcky_god_gallery2,
-        alt: 'Commandes utilitaires et interactions',
-        badge: 'Utilitaires',
-        caption: 'Suite de commandes interactives et animations'
-      }
-    ],
-    links: {
-      github: 'https://github.com/Scorpion-g/Sparcky_god'
-    },
-    highlights: [
-      'Gestion asynchrone des flux d’événements en temps réel',
-      'Système de logs et modération proactive',
-      'Code source disponible et versionné sur GitHub'
-    ]
-  },
-  {
-    id: 'sparcky',
-    title: 'Sparcky - Premier bot communautaire',
-    shortTitle: 'Sparcky',
+    id: 'sparcky-initial',
+    title: 'Sparcky v1 - Premier bot communautaire',
+    shortTitle: 'Sparcky v1',
     featured: false,
     category: 'Automatisation & Backend',
     summary:
@@ -182,15 +199,15 @@ export const projects = [
     objectives:
       "Comprendre les bases des bots événementiels, créer des mini-jeux textuels interactifs (Pierre-Feuille-Ciseaux) et un système de suggestions.",
     tech: 'Logique applicative événementielle, Webhooks',
-    team: 'Projet personnel.',
-    duration: 'Projet d\'été initial.',
+    team: 'Projet personnel initial.',
+    duration: 'Projet d\'été initial (2024).',
     cardText:
       'Premier bot communautaire avec mini-jeux, boîte à idées et commandes de modération de base.',
     tags: ['Automatisation', 'Mini-jeux', 'Algorithmique'],
     cover: {
       src: sparcky1,
       alt: 'Interface du bot Discord Sparcky',
-      badge: 'Bot Initial',
+      badge: 'Prototype Initial',
       caption: 'Interface de commandes initiales'
     },
     gallery: [

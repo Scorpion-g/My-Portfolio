@@ -64,6 +64,8 @@
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-solid fa-location-arrow text-indigo-500 text-base"></i> AéroStat (GPS 2s)</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-discord text-indigo-400 text-base"></i> Sparcky (Full-Stack)</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-brands fa-node text-emerald-600 text-base"></i> Node.js</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-brands fa-gitlab text-orange-500 text-base"></i> GitLab CI & YouTrack</span>
@@ -93,6 +95,8 @@
         <span class="flex items-center gap-2"><i class="fa-solid fa-vial-circle-check text-green-500 text-base"></i> Playwright (Tests E2E)</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-solid fa-location-arrow text-indigo-500 text-base"></i> AéroStat (GPS 2s)</span>
+        <span class="text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-brands fa-discord text-indigo-400 text-base"></i> Sparcky (Full-Stack)</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-2"><i class="fa-brands fa-node text-emerald-600 text-base"></i> Node.js</span>
         <span class="text-slate-300 dark:text-slate-700">•</span>

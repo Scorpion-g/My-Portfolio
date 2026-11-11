@@ -84,13 +84,26 @@
           <span class="font-semibold text-slate-800 dark:text-slate-200 text-xs text-right">{{ project.team }}</span>
         </div>
 
+        <!-- Lien Site / Dashboard en ligne si existant -->
+        <div v-if="project.links?.live" class="pt-3 border-t border-slate-200/80 dark:border-white/[0.08]">
+          <a
+            :href="project.links.live"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary w-full text-xs flex items-center justify-center gap-2"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            <span>{{ isEn ? 'Visit Live Dashboard' : 'Accéder au Dashboard en ligne' }}</span>
+          </a>
+        </div>
+
         <!-- Lien GitHub si existant -->
-        <div v-if="project.links?.github" class="pt-3 border-t border-slate-200/80 dark:border-white/[0.08]">
+        <div v-if="project.links?.github" :class="[project.links?.live ? 'pt-2' : 'pt-3 border-t border-slate-200/80 dark:border-white/[0.08]']">
           <a
             :href="project.links.github"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-primary w-full text-xs"
+            class="btn-secondary w-full text-xs flex items-center justify-center gap-2"
           >
             <i class="fa-brands fa-github text-sm"></i>
             <span>{{ t('project_detail.github_btn') }}</span>
@@ -170,7 +183,7 @@
 import { ref, computed } from 'vue'
 import { useI18n } from '../composables/useI18n'
 
-const { t } = useI18n()
+const { t, isEn } = useI18n()
 
 const props = defineProps({
   project: { type: Object, required: true }
