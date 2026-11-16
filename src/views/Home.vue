@@ -444,11 +444,12 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
-import { projects } from '../data/projects'
+import { useProjects } from '../data/projects'
 import moiImg from '../assets/Moi.jpeg'
 import aerostatCover from '../assets/aerostat_mockup.jpg'
 import ospiCover from '../assets/ospi_playwright_mockup.jpg'
 
 const { t, isEn } = useI18n()
-const featuredProjects = computed(() => projects.filter(p => p.featured))
+const { projects } = useProjects()
+const featuredProjects = computed(() => projects.value.filter(p => p.featured))
 </script>

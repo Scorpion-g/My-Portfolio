@@ -162,10 +162,10 @@
               v-for="(img, idx) in allImages"
               :key="idx"
               type="button"
-              @click="activeImage = img"
+              @click="activeIndex = idx"
               class="relative rounded-lg overflow-hidden h-16 border-2 transition-all focus:outline-none"
               :class="[
-                activeImage.src === img.src
+                activeIndex === idx
                   ? 'border-blue-600 scale-95 shadow-md ring-2 ring-blue-500/20'
                   : 'border-transparent opacity-70 hover:opacity-100 hover:scale-105'
               ]"
@@ -180,7 +180,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useI18n } from '../composables/useI18n'
 
 const { t, isEn } = useI18n()
@@ -201,6 +201,11 @@ const allImages = computed(() => {
   return list
 })
 
-// Image actuellement affichée dans la visionneuse
-const activeImage = ref(props.project?.cover || {})
+// Index de l'image actuellement affichée dans la visionneuse
+const activeIndex = ref(0)
+const activeImage = computed(() => allImages.value[activeIndex.value] || allImages.value[0] || {})
+
+watch(() => props.project?.id, () => {
+  activeIndex.value = 0
+})
 </script>

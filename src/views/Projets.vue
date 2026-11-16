@@ -184,20 +184,25 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import ProjectTimelineCard from '../components/ProjectTimelineCard.vue'
-import { projects } from '../data/projects'
+import { useProjects } from '../data/projects'
 import { useI18n } from '../composables/useI18n'
 
-const { t } = useI18n()
+const { t, isEn } = useI18n()
+const { projects } = useProjects()
 
 const selectedCategory = ref('Tous')
 const selectedTech = ref('Tous')
 const searchQuery = ref('')
 
 const categories = computed(() => {
-  const cats = new Set(projects.map(p => p.category).filter(Boolean))
+  const cats = new Set(projects.value.map(p => p.category).filter(Boolean))
   return ['Tous', ...Array.from(cats)]
+})
+
+watch(isEn, () => {
+  selectedCategory.value = 'Tous'
 })
 
 const techPills = [
@@ -222,7 +227,7 @@ const filteredProjects = computed(() => {
   const cat = selectedCategory.value
   const tech = selectedTech.value
 
-  return projects.filter(p => {
+  return projects.value.filter(p => {
     // 1. Filtre catégorie
     if (cat !== 'Tous' && p.category !== cat) {
       return false

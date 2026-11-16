@@ -64,10 +64,11 @@
 import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import ProjectDetail from '../components/ProjectDetail.vue'
-import { projects } from '../data/projects'
+import { useProjects } from '../data/projects'
 import { useI18n } from '../composables/useI18n'
 
 const { t } = useI18n()
 const route = useRoute()
-const project = computed(() => projects.find((item) => item.id === route.params.id))
+const { projects } = useProjects()
+const project = computed(() => projects.value.find((item) => item.id === route.params.id))
 </script>
