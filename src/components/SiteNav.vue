@@ -1,21 +1,21 @@
 <template>
-  <header class="site-header no-print sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 transition-all duration-300">
+  <header class="site-header no-print sticky top-0 z-50 w-full px-2.5 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-2 transition-all duration-300 overflow-hidden">
     <div
-      class="max-w-[1440px] mx-auto rounded-2xl bg-white/90 dark:bg-[#111827]/80 backdrop-blur-xl border border-slate-200/90 dark:border-white/[0.08] shadow-sm dark:shadow-2xl px-4 sm:px-6 py-3 transition-all"
+      class="max-w-[1440px] mx-auto rounded-2xl bg-white/90 dark:bg-[#111827]/80 backdrop-blur-xl border border-slate-200/90 dark:border-white/[0.08] shadow-sm dark:shadow-2xl px-3 sm:px-6 py-2.5 sm:py-3 transition-all"
     >
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between gap-2">
         <!-- Logo / Marque -->
-        <RouterLink to="/" class="flex items-center gap-3 group focus:outline-none">
+        <RouterLink to="/" class="flex items-center gap-2 sm:gap-3 group focus:outline-none min-w-0 shrink">
           <img
             src="/favicon.svg"
             alt="Logo MR"
-            class="w-10 h-10 rounded-xl shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform shrink-0"
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform shrink-0"
           />
-          <div class="flex flex-col">
-            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          <div class="flex flex-col min-w-0">
+            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
               Mattéo Rivière
             </span>
-            <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
+            <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline truncate">
               {{ isEn ? 'Web Developer' : 'Développeur Web' }}
             </span>
           </div>
@@ -39,12 +39,12 @@
         </nav>
 
         <!-- Actions Desktop & Mobile Toggle -->
-        <div class="flex items-center gap-2 sm:gap-2.5">
+        <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           <!-- Bouton Recherche / Command Palette (Ctrl+K) -->
           <button
             type="button"
             @click="$emit('open-palette')"
-            class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none"
+            class="w-8 h-8 sm:w-auto sm:px-3 sm:py-1.5 rounded-xl flex items-center justify-center gap-2 text-xs font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none shrink-0"
             title="Recherche rapide (Ctrl + K)"
             aria-label="Ouvrir la recherche"
           >
@@ -58,7 +58,7 @@
           <!-- Bouton CV -->
           <RouterLink
             to="/cv"
-            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95"
+            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95 shrink-0"
             :class="[
               $route.path === '/cv'
                 ? 'bg-blue-600 text-white shadow-sm'
@@ -74,7 +74,7 @@
           <button
             type="button"
             @click="toggleLang"
-            class="px-2.5 py-1.5 rounded-xl text-xs font-bold tracking-wider text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none"
+            class="px-2 sm:px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold tracking-wider text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none shrink-0"
             :title="isEn ? 'Passer en Français' : 'Switch to English'"
             aria-label="Changer la langue"
           >
@@ -87,22 +87,22 @@
           <button
             type="button"
             @click="onToggleTheme"
-            class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all active:scale-90 focus:outline-none"
+            class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all active:scale-90 focus:outline-none shrink-0"
             :aria-label="isDark ? t('nav.theme_light') : t('nav.theme_dark')"
             :title="isDark ? t('nav.theme_light') : t('nav.theme_dark')"
           >
-            <i :class="isDark ? 'fa-solid fa-sun text-amber-400' : 'fa-solid fa-moon text-blue-600'"></i>
+            <i :class="isDark ? 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm' : 'fa-solid fa-moon text-blue-600 text-xs sm:text-sm'"></i>
           </button>
 
           <!-- Bouton Menu Mobile (Hamburger) -->
           <button
             type="button"
             @click="mobileOpen = !mobileOpen"
-            class="md:hidden w-9 h-9 rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none"
+            class="md:hidden w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-white/[0.08] transition-all focus:outline-none shrink-0"
             :aria-expanded="mobileOpen"
             aria-label="Ouvrir le menu"
           >
-            <i :class="mobileOpen ? 'fa-solid fa-xmark text-base' : 'fa-solid fa-bars text-base'"></i>
+            <i :class="mobileOpen ? 'fa-solid fa-xmark text-sm sm:text-base' : 'fa-solid fa-bars text-sm sm:text-base'"></i>
           </button>
         </div>
       </div>
